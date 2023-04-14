@@ -1,0 +1,175 @@
+
+SrecReader.o:     file format elf32-littlearm
+
+
+Disassembly of section .text.HexAsciiToNibble:
+
+00000000 <HexAsciiToNibble>:
+   0:	4603      	mov	r3, r0
+   2:	3830      	subs	r0, #48	; 0x30
+   4:	b2c0      	uxtb	r0, r0
+   6:	2809      	cmp	r0, #9
+   8:	bf84      	itt	hi
+   a:	3b37      	subhi	r3, #55	; 0x37
+   c:	b2d8      	uxtbhi	r0, r3
+   e:	4770      	bx	lr
+
+Disassembly of section .text.HexAsciiToByte:
+
+00000000 <HexAsciiToByte>:
+   0:	b508      	push	{r3, lr}
+   2:	7841      	ldrb	r1, [r0, #1]
+   4:	7800      	ldrb	r0, [r0, #0]
+   6:	f7ff fffe 	bl	0 <HexAsciiToByte>
+   a:	4602      	mov	r2, r0
+   c:	4608      	mov	r0, r1
+   e:	f7ff fffe 	bl	0 <HexAsciiToByte>
+  12:	eb00 1002 	add.w	r0, r0, r2, lsl #4
+  16:	b2c0      	uxtb	r0, r0
+  18:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.GetCount:
+
+00000000 <GetCount>:
+   0:	3002      	adds	r0, #2
+   2:	f7ff bffe 	b.w	0 <GetCount>
+
+Disassembly of section .text.GetAddressS3:
+
+00000000 <GetAddressS3>:
+   0:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+   2:	4605      	mov	r5, r0
+   4:	3004      	adds	r0, #4
+   6:	f7ff fffe 	bl	0 <GetAddressS3>
+   a:	4607      	mov	r7, r0
+   c:	1da8      	adds	r0, r5, #6
+   e:	f7ff fffe 	bl	0 <GetAddressS3>
+  12:	4604      	mov	r4, r0
+  14:	f105 0008 	add.w	r0, r5, #8
+  18:	f7ff fffe 	bl	0 <GetAddressS3>
+  1c:	0424      	lsls	r4, r4, #16
+  1e:	4606      	mov	r6, r0
+  20:	eb04 6407 	add.w	r4, r4, r7, lsl #24
+  24:	f105 000a 	add.w	r0, r5, #10
+  28:	eb04 2406 	add.w	r4, r4, r6, lsl #8
+  2c:	f7ff fffe 	bl	0 <GetAddressS3>
+  30:	4420      	add	r0, r4
+  32:	bdf8      	pop	{r3, r4, r5, r6, r7, pc}
+
+Disassembly of section .text.GetDataS3:
+
+00000000 <GetDataS3>:
+   0:	3106      	adds	r1, #6
+   2:	b508      	push	{r3, lr}
+   4:	eb00 0041 	add.w	r0, r0, r1, lsl #1
+   8:	f7ff fffe 	bl	0 <GetDataS3>
+   c:	bd08      	pop	{r3, pc}
+
+Disassembly of section .text.SrecReadLine:
+
+00000000 <SrecReadLine>:
+   0:	b5f0      	push	{r4, r5, r6, r7, lr}
+   2:	4604      	mov	r4, r0
+   4:	6815      	ldr	r5, [r2, #0]
+   6:	680b      	ldr	r3, [r1, #0]
+   8:	4418      	add	r0, r3
+   a:	4603      	mov	r3, r0
+   c:	b945      	cbnz	r5, 20 <SrecReadLine+0x20>
+   e:	461a      	mov	r2, r3
+  10:	3301      	adds	r3, #1
+  12:	1b1e      	subs	r6, r3, r4
+  14:	7817      	ldrb	r7, [r2, #0]
+  16:	2f0a      	cmp	r7, #10
+  18:	d1f9      	bne.n	e <SrecReadLine+0xe>
+  1a:	600e      	str	r6, [r1, #0]
+  1c:	7015      	strb	r5, [r2, #0]
+  1e:	bdf0      	pop	{r4, r5, r6, r7, pc}
+  20:	2301      	movs	r3, #1
+  22:	2000      	movs	r0, #0
+  24:	6013      	str	r3, [r2, #0]
+  26:	e7fa      	b.n	1e <SrecReadLine+0x1e>
+
+Disassembly of section .text.SrecReader:
+
+00000000 <SrecReader>:
+   0:	e92d 45f7 	stmdb	sp!, {r0, r1, r2, r4, r5, r6, r7, r8, sl, lr}
+   4:	4606      	mov	r6, r0
+   6:	460f      	mov	r7, r1
+   8:	2300      	movs	r3, #0
+   a:	e9cd 3300 	strd	r3, r3, [sp]
+   e:	9d00      	ldr	r5, [sp, #0]
+  10:	b11d      	cbz	r5, 1a <SrecReader+0x1a>
+  12:	2000      	movs	r0, #0
+  14:	b003      	add	sp, #12
+  16:	e8bd 85f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, sl, pc}
+  1a:	466a      	mov	r2, sp
+  1c:	a901      	add	r1, sp, #4
+  1e:	4630      	mov	r0, r6
+  20:	f7ff fffe 	bl	0 <SrecReader>
+  24:	7803      	ldrb	r3, [r0, #0]
+  26:	4680      	mov	r8, r0
+  28:	2b53      	cmp	r3, #83	; 0x53
+  2a:	d1f2      	bne.n	12 <SrecReader+0x12>
+  2c:	7843      	ldrb	r3, [r0, #1]
+  2e:	2b39      	cmp	r3, #57	; 0x39
+  30:	d8ed      	bhi.n	e <SrecReader+0xe>
+  32:	2b36      	cmp	r3, #54	; 0x36
+  34:	d816      	bhi.n	64 <SrecReader+0x64>
+  36:	2b30      	cmp	r3, #48	; 0x30
+  38:	d0e9      	beq.n	e <SrecReader+0xe>
+  3a:	2b33      	cmp	r3, #51	; 0x33
+  3c:	d1e7      	bne.n	e <SrecReader+0xe>
+  3e:	f7ff fffe 	bl	0 <SrecReader>
+  42:	4604      	mov	r4, r0
+  44:	4640      	mov	r0, r8
+  46:	3c05      	subs	r4, #5
+  48:	f7ff fffe 	bl	0 <SrecReader>
+  4c:	eb07 0a00 	add.w	sl, r7, r0
+  50:	42ac      	cmp	r4, r5
+  52:	d9dc      	bls.n	e <SrecReader+0xe>
+  54:	4629      	mov	r1, r5
+  56:	4640      	mov	r0, r8
+  58:	f7ff fffe 	bl	0 <SrecReader>
+  5c:	3501      	adds	r5, #1
+  5e:	f80a 0b01 	strb.w	r0, [sl], #1
+  62:	e7f5      	b.n	50 <SrecReader+0x50>
+  64:	2301      	movs	r3, #1
+  66:	9300      	str	r3, [sp, #0]
+  68:	e7d1      	b.n	e <SrecReader+0xe>
+
+Disassembly of section .text.ChargementApplicative:
+
+00000000 <ChargementApplicative>:
+   0:	b570      	push	{r4, r5, r6, lr}
+   2:	2100      	movs	r1, #0
+   4:	4c11      	ldr	r4, [pc, #68]	; (4c <ChargementApplicative+0x4c>)
+   6:	f44f 3580 	mov.w	r5, #65536	; 0x10000
+   a:	462a      	mov	r2, r5
+   c:	4628      	mov	r0, r5
+   e:	2600      	movs	r6, #0
+  10:	6025      	str	r5, [r4, #0]
+  12:	f7ff fffe 	bl	0 <memset>
+  16:	462a      	mov	r2, r5
+  18:	4635      	mov	r5, r6
+  1a:	2100      	movs	r1, #0
+  1c:	4608      	mov	r0, r1
+  1e:	f7ff fffe 	bl	0 <memset>
+  22:	f7ff fffe 	bl	0 <getc>
+  26:	6823      	ldr	r3, [r4, #0]
+  28:	b2c0      	uxtb	r0, r0
+  2a:	2e53      	cmp	r6, #83	; 0x53
+  2c:	5558      	strb	r0, [r3, r5]
+  2e:	d101      	bne.n	34 <ChargementApplicative+0x34>
+  30:	2837      	cmp	r0, #55	; 0x37
+  32:	d002      	beq.n	3a <ChargementApplicative+0x3a>
+  34:	3501      	adds	r5, #1
+  36:	4606      	mov	r6, r0
+  38:	e7f3      	b.n	22 <ChargementApplicative+0x22>
+  3a:	6823      	ldr	r3, [r4, #0]
+  3c:	2100      	movs	r1, #0
+  3e:	442b      	add	r3, r5
+  40:	7059      	strb	r1, [r3, #1]
+  42:	6820      	ldr	r0, [r4, #0]
+  44:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
+  48:	f7ff bffe 	b.w	0 <ChargementApplicative>
+  4c:	00000000 	.word	0x00000000

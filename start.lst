@@ -1,0 +1,121 @@
+
+start.o:     file format elf32-littlearm
+
+
+Disassembly of section .vectors:
+
+00000000 <_start>:
+   0:	eafffffe 	b	44 <reset>
+   4:	e59ff014 	ldr	pc, [pc, #20]	; 20 <_undefined_instruction>
+   8:	e59ff014 	ldr	pc, [pc, #20]	; 24 <_software_interrupt>
+   c:	e59ff014 	ldr	pc, [pc, #20]	; 28 <_prefetch_abort>
+  10:	e59ff014 	ldr	pc, [pc, #20]	; 2c <_data_abort>
+  14:	e59ff014 	ldr	pc, [pc, #20]	; 30 <_not_used>
+  18:	e59ff014 	ldr	pc, [pc, #20]	; 34 <_irq>
+  1c:	e59ff014 	ldr	pc, [pc, #20]	; 38 <_fiq>
+
+00000020 <_undefined_instruction>:
+  20:	00000040 	.word	0x00000040
+
+00000024 <_software_interrupt>:
+  24:	00000040 	.word	0x00000040
+
+00000028 <_prefetch_abort>:
+  28:	00000040 	.word	0x00000040
+
+0000002c <_data_abort>:
+  2c:	00000040 	.word	0x00000040
+
+00000030 <_not_used>:
+  30:	00000040 	.word	0x00000040
+
+00000034 <_irq>:
+  34:	00000104 	.word	0x00000104
+
+00000038 <_fiq>:
+  38:	00000040 	.word	0x00000040
+  3c:	deadbeef 	.word	0xdeadbeef
+
+00000040 <data_abort>:
+  40:	ebfffffe 	bl	40 <data_abort>
+
+00000044 <reset>:
+  44:	e10f0000 	mrs	r0, CPSR
+  48:	e200101f 	and	r1, r0, #31
+  4c:	e331001a 	teq	r1, #26
+  50:	13c0001f 	bicne	r0, r0, #31
+  54:	13800013 	orrne	r0, r0, #19
+  58:	e38000c0 	orr	r0, r0, #192	; 0xc0
+  5c:	e129f000 	msr	CPSR_fc, r0
+  60:	ee110f10 	mrc	15, 0, r0, cr1, cr0, {0}
+  64:	e3c00a02 	bic	r0, r0, #8192	; 0x2000
+  68:	ee010f10 	mcr	15, 0, r0, cr1, cr0, {0}
+  6c:	e59f00c0 	ldr	r0, [pc, #192]	; 134 <UartData+0x4>
+  70:	ee0c0f10 	mcr	15, 0, r0, cr12, cr0, {0}
+  74:	ebfffffe 	bl	8c <cpu_init_cp15>
+  78:	ebfffffe 	bl	e0 <_main>
+
+0000007c <c_runtime_cpu_setup>:
+  7c:	ee070f15 	mcr	15, 0, r0, cr7, cr5, {0}
+  80:	ee070f9a 	mcr	15, 0, r0, cr7, cr10, {4}
+  84:	ee070f95 	mcr	15, 0, r0, cr7, cr5, {4}
+  88:	e12fff1e 	bx	lr
+
+0000008c <cpu_init_cp15>:
+  8c:	e3a00000 	mov	r0, #0
+  90:	ee080f17 	mcr	15, 0, r0, cr8, cr7, {0}
+  94:	ee070f15 	mcr	15, 0, r0, cr7, cr5, {0}
+  98:	ee070fd5 	mcr	15, 0, r0, cr7, cr5, {6}
+  9c:	ee070f9a 	mcr	15, 0, r0, cr7, cr10, {4}
+  a0:	ee070f95 	mcr	15, 0, r0, cr7, cr5, {4}
+  a4:	ee110f10 	mrc	15, 0, r0, cr1, cr0, {0}
+  a8:	e3c00a02 	bic	r0, r0, #8192	; 0x2000
+  ac:	e3c00007 	bic	r0, r0, #7
+  b0:	e3800002 	orr	r0, r0, #2
+  b4:	e3800b02 	orr	r0, r0, #2048	; 0x800
+  b8:	e3800a01 	orr	r0, r0, #4096	; 0x1000
+  bc:	ee010f10 	mcr	15, 0, r0, cr1, cr0, {0}
+  c0:	e1a0500e 	mov	r5, lr
+  c4:	ee101f10 	mrc	15, 0, r1, cr0, cr0, {0}
+  c8:	e1a03a21 	lsr	r3, r1, #20
+  cc:	e203300f 	and	r3, r3, #15
+  d0:	e201400f 	and	r4, r1, #15
+  d4:	e1a02203 	lsl	r2, r3, #4
+  d8:	e1842002 	orr	r2, r4, r2
+  dc:	e1a0f005 	mov	pc, r5
+
+000000e0 <_main>:
+  e0:	e59f004c 	ldr	r0, [pc, #76]	; 134 <UartData+0x4>
+  e4:	ee0c0f10 	mcr	15, 0, r0, cr12, cr0, {0}
+  e8:	e3e000bf 	mvn	r0, #191	; 0xbf
+  ec:	e3e000ff 	mvn	r0, #255	; 0xff
+  f0:	e3c00007 	bic	r0, r0, #7
+  f4:	e1a0d000 	mov	sp, r0
+  f8:	e1a09000 	mov	r9, r0
+  fc:	e3a00000 	mov	r0, #0
+ 100:	ebfffffe 	bl	0 <board_init>
+
+00000104 <irq>:
+ 104:	e92d40ff 	push	{r0, r1, r2, r3, r4, r5, r6, r7, lr}
+ 108:	e59f001c 	ldr	r0, [pc, #28]	; 12c <UartValue>
+ 10c:	e59f101c 	ldr	r1, [pc, #28]	; 130 <UartData>
+ 110:	e5810000 	str	r0, [r1]
+ 114:	ebfffffe 	bl	0 <alt_int_handler_irq>
+ 118:	e8bd40ff 	pop	{r0, r1, r2, r3, r4, r5, r6, r7, lr}
+ 11c:	e25ef004 	subs	pc, lr, #4
+
+00000120 <lirq>:
+ 120:	ebfffffe 	bl	120 <lirq>
+
+00000124 <LedValue>:
+ 124:	01000000 	.word	0x01000000
+
+00000128 <LedData>:
+ 128:	ff709000 	.word	0xff709000
+
+0000012c <UartValue>:
+ 12c:	00000049 	.word	0x00000049
+
+00000130 <UartData>:
+ 130:	ffc02000 	.word	0xffc02000
+ 134:	00000000 	.word	0x00000000
