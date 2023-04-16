@@ -2,6 +2,49 @@
 demos_hwlibs/timers_demo.o:     file format elf32-littlearm
 
 
+Disassembly of section .text.timers_demo_gp_timer_isr_callback:
+
+00000000 <timers_demo_gp_timer_isr_callback>:
+   0:	b510      	push	{r4, lr}
+   2:	2006      	movs	r0, #6
+   4:	f7ff fffe 	bl	0 <alt_gpt_int_clear_pending>
+   8:	4a12      	ldr	r2, [pc, #72]	; (54 <timers_demo_gp_timer_isr_callback+0x54>)
+   a:	4c13      	ldr	r4, [pc, #76]	; (58 <timers_demo_gp_timer_isr_callback+0x58>)
+   c:	6813      	ldr	r3, [r2, #0]
+   e:	3301      	adds	r3, #1
+  10:	6013      	str	r3, [r2, #0]
+  12:	f5b3 7ffa 	cmp.w	r3, #500	; 0x1f4
+  16:	d910      	bls.n	3a <timers_demo_gp_timer_isr_callback+0x3a>
+  18:	6823      	ldr	r3, [r4, #0]
+  1a:	2100      	movs	r1, #0
+  1c:	6011      	str	r1, [r2, #0]
+  1e:	3301      	adds	r3, #1
+  20:	6023      	str	r3, [r4, #0]
+  22:	4b0e      	ldr	r3, [pc, #56]	; (5c <timers_demo_gp_timer_isr_callback+0x5c>)
+  24:	681a      	ldr	r2, [r3, #0]
+  26:	2a01      	cmp	r2, #1
+  28:	bf07      	ittee	eq
+  2a:	6019      	streq	r1, [r3, #0]
+  2c:	2048      	moveq	r0, #72	; 0x48
+  2e:	204c      	movne	r0, #76	; 0x4c
+  30:	2201      	movne	r2, #1
+  32:	bf18      	it	ne
+  34:	601a      	strne	r2, [r3, #0]
+  36:	f7ff fffe 	bl	0 <putc>
+  3a:	6823      	ldr	r3, [r4, #0]
+  3c:	2b05      	cmp	r3, #5
+  3e:	d907      	bls.n	50 <timers_demo_gp_timer_isr_callback+0x50>
+  40:	4807      	ldr	r0, [pc, #28]	; (60 <timers_demo_gp_timer_isr_callback+0x60>)
+  42:	f7ff fffe 	bl	0 <puts>
+  46:	4b07      	ldr	r3, [pc, #28]	; (64 <timers_demo_gp_timer_isr_callback+0x64>)
+  48:	2201      	movs	r2, #1
+  4a:	701a      	strb	r2, [r3, #0]
+  4c:	2300      	movs	r3, #0
+  4e:	6023      	str	r3, [r4, #0]
+  50:	bd10      	pop	{r4, pc}
+  52:	bf00      	nop
+	...
+
 Disassembly of section .text.timers_demo_glbl_timer_isr_callback:
 
 00000000 <timers_demo_glbl_timer_isr_callback>:
@@ -36,38 +79,6 @@ Disassembly of section .text.timers_demo_wdog0_isr_callback:
    c:	701a      	strb	r2, [r3, #0]
    e:	bd08      	pop	{r3, pc}
   10:	00000000 	.word	0x00000000
-
-Disassembly of section .text.timers_demo_gp_timer_isr_callback:
-
-00000000 <timers_demo_gp_timer_isr_callback>:
-   0:	b510      	push	{r4, lr}
-   2:	2006      	movs	r0, #6
-   4:	f7ff fffe 	bl	0 <alt_gpt_int_clear_pending>
-   8:	4a0c      	ldr	r2, [pc, #48]	; (3c <timers_demo_gp_timer_isr_callback+0x3c>)
-   a:	4c0d      	ldr	r4, [pc, #52]	; (40 <timers_demo_gp_timer_isr_callback+0x40>)
-   c:	6813      	ldr	r3, [r2, #0]
-   e:	3301      	adds	r3, #1
-  10:	6013      	str	r3, [r2, #0]
-  12:	f5b3 7ffa 	cmp.w	r3, #500	; 0x1f4
-  16:	d904      	bls.n	22 <timers_demo_gp_timer_isr_callback+0x22>
-  18:	6823      	ldr	r3, [r4, #0]
-  1a:	3301      	adds	r3, #1
-  1c:	6023      	str	r3, [r4, #0]
-  1e:	2300      	movs	r3, #0
-  20:	6013      	str	r3, [r2, #0]
-  22:	6823      	ldr	r3, [r4, #0]
-  24:	2b0a      	cmp	r3, #10
-  26:	d907      	bls.n	38 <timers_demo_gp_timer_isr_callback+0x38>
-  28:	204e      	movs	r0, #78	; 0x4e
-  2a:	f7ff fffe 	bl	0 <putc>
-  2e:	4b05      	ldr	r3, [pc, #20]	; (44 <timers_demo_gp_timer_isr_callback+0x44>)
-  30:	2201      	movs	r2, #1
-  32:	701a      	strb	r2, [r3, #0]
-  34:	2300      	movs	r3, #0
-  36:	6023      	str	r3, [r4, #0]
-  38:	bd10      	pop	{r4, pc}
-  3a:	bf00      	nop
-	...
 
 Disassembly of section .text.timers_demo_system_init:
 

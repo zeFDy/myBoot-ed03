@@ -263,28 +263,28 @@ static void timers_demo_gp_timer_isr_callback()
     {
         timerLoopCount++;
         ledCounter =0;
-        //if(ledValue==1) 
-        //{
-        //    ledValue =0;
-        //    *ledData = (unsigned int) (0);
-        //    //putc('H');
-        //}
-        //else            
-        //{
-        //    ledValue =1;
- 		//	*ledData = (unsigned int) (1 <<24);
-        //    //putc('L');
-        //}
+        if(ledValue==1) 
+        {
+            ledValue =0;
+            //*ledData = (unsigned int) (0);
+            putc('H');
+        }
+        else            
+        {
+            ledValue =1;
+ 			//*ledData = (unsigned int) (1 <<24);
+            putc('L');
+        }
 		
 		//ledPeriod = ledPeriod + LED_PERIOD_STEP;
 		//if(ledPeriod>LED_PERIOD_MAX)		ledPeriod = LED_PERIOD_MIN;
     }
 
-    if(timerLoopCount>10)
+    if(timerLoopCount>5)
     {
         // Notify main thread
-        //puts("\n\rNotify main thread\n\r");
-        putc('N');
+        puts("\n\rNotify main thread\n\r");
+        //putc('N');
         GP_Timer_Interrupt_Fired = true;  // let main loop wait
         timerLoopCount =0;
     }

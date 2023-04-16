@@ -20,16 +20,25 @@ uint32_t	timerValueHigh;
 uint32_t	timerValueLow;
 
 extern bool GP_Timer_Interrupt_Fired;
-
+extern void Cpu1CodeStart(void);
 
 volatile unsigned int*	thisLedData 	= (unsigned int *)0xFF709000;
 uint32_t 				thisLedValue    =0;
 volatile uint32_t		j;
 int 					iCounter;
 
+static __inline uint32_t get_current_sp(void)
+{
+    uint32_t uiSp;
+
+    __asm("MOV %0, SP" : "=r" (uiSp));
+    return uiSp;
+}
 
 void 		Cpu1Code()
 {
+	uint32_t	uiMainCounter =0;
+	
 	//*thisLedData = (unsigned int) (1 <<24);
 	uint32_t affinity = get_current_cpu_num();
 	puts("Cpu1Code affinity = 0x");
@@ -37,30 +46,36 @@ void 		Cpu1Code()
 	puts("\r\n");
 	if(affinity==1)	puts("RUNNING ON CORE1\r\n");
 	
-	start:
+	puts("SP=");
+	putHexa32(get_current_sp());
+	puts("\r\n");
 	
-	// soft loop for around 500ms
-	//for(iCounter=0;iCounter<5000000;iCounter++)
-	for(iCounter=0;iCounter<1000000;iCounter++)
+	while(1)
 	{
-		j=iCounter*2;
-	}
+		// soft loop for around 500ms (5000000)
+		//for(iCounter=0;iCounter<5000000;iCounter++)
+		for(iCounter=0;iCounter<2000000;iCounter++)
+		{
+			j=iCounter*2;
+		}
 
-	if(thisLedValue==1) 
-	{
-		thisLedValue =0;
-		//*thisLedData = (unsigned int) (0);
-		//putc('h');
+		uiMainCounter++;
+		
+		if(thisLedValue==1) 
+		{
+			thisLedValue =0;
+			*thisLedData = (unsigned int) (0);
+			//putc('h');
+		}
+		else            
+		{
+			thisLedValue =1;
+			*thisLedData = (unsigned int) (1 <<24);
+			//putc('l');
+		}
+		
+		if(uiMainCounter%100==0)	puts("CORE1 kicks !\r\n");
 	}
-	else            
-	{
-		thisLedValue =1;
-		//*thisLedData = (unsigned int) (1 <<24);
-		//putc('l');
-	}
-	
-	goto start;
-
 }
 
 uint64_t  get_ticks(void)
@@ -246,6 +261,10 @@ void SdRamMain(void)
 	PutByte((uint8_t)affinity);
 	puts("\r\n");
 	if(affinity==0)	puts("RUNNING ON CORE0\r\n");
+	puts("SP=");
+	putHexa32(get_current_sp());
+	puts("\r\n");
+	
 	
 	timers_demo_main();			
 	puts("End of timer demo...\n\r");
@@ -255,14 +274,14 @@ void SdRamMain(void)
 	volatile unsigned int*	mpumodrst 			= (unsigned int *)0xFFD05010;
 	
 	// cpu1 start
-	*cpu1startaddr = 0;
+	//*cpu1startaddr = 0x0000010C;
+	*cpu1startaddr = Cpu1CodeStart;
 	
 	//unsigned int mpumodrstValue = *mpumodrst;
 	//*mpumodrst = mpumodrstValue & 0xFFFFFFFD;
 	
 	//unreset cpu1
 	clrbits_le32(RSTMGR_MPUMODRESET, 1 << 1);		// cpu1=b1
-
 
 	
 	while(1)

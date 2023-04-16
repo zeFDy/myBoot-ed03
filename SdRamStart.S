@@ -29,7 +29,7 @@
 	.globl 	cpu_init_cp15
 */
 	.globl 	SdRamMain
-	.globl 	Cpu1Code
+	.globl 	Cpu1CodeStart
 	.globl	_start_SdRamPart
 	.globl 	_mainCore1Start
 	
@@ -62,7 +62,7 @@
 	
 _start_SdRamPart:
 
-	b	reset_SdRamPart
+	b	Cpu1CodeStart
 	ldr	pc, _undefined_instruction_SdRamPart
 	ldr	pc, _software_interrupt_SdRamPart
 	ldr	pc, _prefetch_abort_SdRamPart
@@ -115,7 +115,6 @@ fiq_SdRamPart:
 l_SdRamPart:
 	bl	l_SdRamPart			/* hang and never return */
 
-/* ici c'est reset du CPU1 */
 /* section en 0x100 pour lancer le C de l'exec en sdram pour core0 */
 	.section ".mainSdRamPart", "ax"
 
@@ -127,77 +126,85 @@ _mainSdRamPart:
 	ldr	r0, =_start_SdRamPart
 	mcr	p15, 0, r0, c12, c0, 0	@Set VBAR
 
+	// Core0 SP
+	//ldr	r0, =0x0001E000			// Ok DRAM
+	ldr	r0, =0x3FFFF000				// Ok DRAM high
 	@ ldr	r0, =0xFFFFFF40
-	@ ldr	r0, =0xFFFFFF00
-	@ bic	r0, r0, #7	/* 8-byte alignment for ABI compliance */
-	@ mov	sp, r0
-	@ mov	r9, r0
-	@ mov	r0, #0
-		
-	bl	SdRamMain
-
-	
-reset_SdRamPart:
-
-
-	/*
-	 * disable interrupts (FIQ and IRQ), also set the cpu to SVC32 mode,
-	 * except if in HYP mode already
-	 */
-	mrs	r0, cpsr
-	and	r1, r0, #0x1f		@ mask mode bits
-	teq	r1, #0x1a		@ test for HYP mode
-	bicne	r0, r0, #0x1f		@ clear all mode bits
-	orrne	r0, r0, #0x13		@ set SVC mode
-	orr	r0, r0, #0xc0		@ disable FIQ and IRQ
-	msr	cpsr,r0
-
-	/*
-	* Setup vector:
-	* (OMAP4 spl TEXT_BASE is not 32 byte aligned.
-	* Continue to use ROM code vector only in OMAP4 spl)
-	*/
-
-	/* Set V=0 in CP15 SCTLR register - for VBAR to point to vector */
-	mrc	p15, 0, r0, c1, c0, 0	@ Read CP15 SCTLR Register
-	bic	r0, #0x2000				@ CR_V = 0x2000		@ V = 0
-	mcr	p15, 0, r0, c1, c0, 0	@ Write CP15 SCTLR Register
-
-	/* Set vector address in CP15 VBAR register */
-	ldr	r0, =_start_SdRamPart
-	mcr	p15, 0, r0, c12, c0, 0	@Set VBAR
-
-	/* the mask ROM code should have PLL and others stable */
-	bl		cpu_init_cp15_SdRamPart
-
-	/*
-	 * Set up initial C runtime environment and call board_init_f(0).
-	 */
-	 
-	/* Set vector address in CP15 VBAR register */
-	ldr	r0, =_start_SdRamPart
-	mcr	p15, 0, r0, c12, c0, 0	@Set VBAR
-
-	ldr	r0, =0xFFFFF000
+	@ ldr	r0, =0xFFFFFF00			// On Chip RAM
 	bic	r0, r0, #7	/* 8-byte alignment for ABI compliance */
 	mov	sp, r0
 	mov	r9, r0
 	mov	r0, #0
 		
-	MRC p15, 0, r1, c0, c0, 5
-	and r1, #0xFF
-	cmp r1, #1
-	bne JumpCpu1Code
-	
-	ldr r0, ='1'
-	ldr r1, =0xFFC02000	/* UartData */ 
-	str r0, [r1, #0]
-	
-	ldr r0, LedValue	/* 1<<24 */
-	ldr r1, LedData		/* LedData port in memory */
-	str r0, [r1, #0]
+	bl	SdRamMain
 
-JumpCpu1Code:
+	
+/* ici c'est reset du CPU1 */
+Cpu1CodeStart:
+	// /*
+	//  * disable interrupts (FIQ and IRQ), also set the cpu to SVC32 mode,
+	//  * except if in HYP mode already
+	//  */
+	// mrs	r0, cpsr
+	// and	r1, r0, #0x1f			@ mask mode bits
+	// teq	r1, #0x1a				@ test for HYP mode
+	// bicne	r0, r0, #0x1f		@ clear all mode bits
+	// orrne	r0, r0, #0x13		@ set SVC mode
+	// orr	r0, r0, #0xc0			@ disable FIQ and IRQ
+	// msr	cpsr,r0
+	// 
+	// /*
+	// * Setup vector:
+	// * (OMAP4 spl TEXT_BASE is not 32 byte aligned.
+	// * Continue to use ROM code vector only in OMAP4 spl)
+	// */
+	// 
+	// /* Set V=0 in CP15 SCTLR register - for VBAR to point to vector */
+	// mrc	p15, 0, r0, c1, c0, 0	@ Read CP15 SCTLR Register
+	// bic	r0, #0x2000				@ CR_V = 0x2000		@ V = 0
+	// mcr	p15, 0, r0, c1, c0, 0	@ Write CP15 SCTLR Register
+	// 
+	// /* Set vector address in CP15 VBAR register */
+	// ldr	r0, =_start_SdRamPart
+	// mcr	p15, 0, r0, c12, c0, 0	@Set VBAR
+	// 
+	// /* the mask ROM code should have PLL and others stable */
+	// bl		cpu_init_cp15_SdRamPart
+	// 
+	// /*
+	//  * Set up initial C runtime environment and call board_init_f(0).
+	//  */
+	//  
+	// /* Set vector address in CP15 VBAR register */
+	// ldr	r0, =_start_SdRamPart
+	// mcr	p15, 0, r0, c12, c0, 0	@Set VBAR
+
+	// Core1 SP
+	//ldr	r0, =0xFFFFF000			// Ok On Chip RAM
+	//ldr	r0, =0x0001F000			// Ok DRAM en bas
+	ldr	r0, =0x40000000				// Ok haut de DRAM
+	bic	r0, r0, #7	/* 8-byte alignment for ABI compliance */
+	mov	sp, r0
+	mov	r9, r0
+	mov	r0, #0
+		
+    //
+    // essai de test core0/core1
+	// MRC p15, 0, r1, c0, c0, 5	// recuperation du coreX - Read CPU ID Register
+	// and r1, #0xFF				// mask uniquement info coreX
+	// cmp r1, #1					// running on core1 ?
+	// bne JumpCpu1Code				// non jump to JumpCpu1Code
+	//	
+	// ldr r0, ='1'
+	// ldr r1, =0xFFC02000	/* UartData */ 
+	// str r0, [r1, #0]
+	//
+	// ldr r0, LedValue		/* 1<<24 */
+	// ldr r1, LedData		/* LedData port in memory */
+	// str r0, [r1, #0]
+	//JumpCpu1Code:
+	//
+	
 	bl	Cpu1Code
 	
 	

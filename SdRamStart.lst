@@ -5,7 +5,7 @@ SdRamStart.o:     file format elf32-littlearm
 Disassembly of section .vectorsSdRam:
 
 00000000 <_start_SdRamPart>:
-   0:	ea000001 	b	c <_start_SdRamPart+0xc>
+   0:	eafffffe 	b	20 <_undefined_instruction_SdRamPart>
    4:	e59ff014 	ldr	pc, [pc, #20]	; 20 <_undefined_instruction_SdRamPart>
    8:	e59ff014 	ldr	pc, [pc, #20]	; 24 <_software_interrupt_SdRamPart>
    c:	e59ff014 	ldr	pc, [pc, #20]	; 28 <_prefetch_abort_SdRamPart>
@@ -30,7 +30,7 @@ Disassembly of section .vectorsSdRam:
   30:	00000040 	.word	0x00000040
 
 00000034 <_irq_SdRamPart>:
-  34:	000000f4 	.word	0x000000f4
+  34:	000000a4 	.word	0x000000a4
 
 00000038 <_fiq_SdRamPart>:
   38:	00000040 	.word	0x00000040
@@ -42,94 +42,71 @@ Disassembly of section .vectorsSdRam:
 Disassembly of section .mainSdRamPart:
 
 00000000 <_mainSdRamPart>:
-   0:	e59f0108 	ldr	r0, [pc, #264]	; 110 <UartData+0x4>
+   0:	e59f00b8 	ldr	r0, [pc, #184]	; c0 <UartData+0x4>
    4:	ee0c0f10 	mcr	15, 0, r0, cr12, cr0, {0}
-   8:	ebfffffe 	bl	0 <SdRamMain>
+   8:	e59f00b4 	ldr	r0, [pc, #180]	; c4 <UartData+0x8>
+   c:	e3c00007 	bic	r0, r0, #7
+  10:	e1a0d000 	mov	sp, r0
+  14:	e1a09000 	mov	r9, r0
+  18:	e3a00000 	mov	r0, #0
+  1c:	ebfffffe 	bl	0 <SdRamMain>
 
-0000000c <reset_SdRamPart>:
-   c:	e10f0000 	mrs	r0, CPSR
-  10:	e200101f 	and	r1, r0, #31
-  14:	e331001a 	teq	r1, #26
-  18:	13c0001f 	bicne	r0, r0, #31
-  1c:	13800013 	orrne	r0, r0, #19
-  20:	e38000c0 	orr	r0, r0, #192	; 0xc0
-  24:	e129f000 	msr	CPSR_fc, r0
-  28:	ee110f10 	mrc	15, 0, r0, cr1, cr0, {0}
-  2c:	e3c00a02 	bic	r0, r0, #8192	; 0x2000
-  30:	ee010f10 	mcr	15, 0, r0, cr1, cr0, {0}
-  34:	e59f00d4 	ldr	r0, [pc, #212]	; 110 <UartData+0x4>
-  38:	ee0c0f10 	mcr	15, 0, r0, cr12, cr0, {0}
-  3c:	eb000017 	bl	a0 <cpu_init_cp15_SdRamPart>
-  40:	e59f00c8 	ldr	r0, [pc, #200]	; 110 <UartData+0x4>
-  44:	ee0c0f10 	mcr	15, 0, r0, cr12, cr0, {0}
-  48:	e59f00c4 	ldr	r0, [pc, #196]	; 114 <UartData+0x8>
-  4c:	e3c00007 	bic	r0, r0, #7
-  50:	e1a0d000 	mov	sp, r0
-  54:	e1a09000 	mov	r9, r0
-  58:	e3a00000 	mov	r0, #0
-  5c:	ee101fb0 	mrc	15, 0, r1, cr0, cr0, {5}
-  60:	e20110ff 	and	r1, r1, #255	; 0xff
-  64:	e3510001 	cmp	r1, #1
-  68:	1a000005 	bne	84 <JumpCpu1Code>
-  6c:	e3a00031 	mov	r0, #49	; 0x31
-  70:	e59f10a0 	ldr	r1, [pc, #160]	; 118 <UartData+0xc>
-  74:	e5810000 	str	r0, [r1]
-  78:	e59f0008 	ldr	r0, [pc, #8]	; 88 <LedValue>
-  7c:	e59f1008 	ldr	r1, [pc, #8]	; 8c <LedData>
-  80:	e5810000 	str	r0, [r1]
+00000020 <Cpu1CodeStart>:
+  20:	e3a00101 	mov	r0, #1073741824	; 0x40000000
+  24:	e3c00007 	bic	r0, r0, #7
+  28:	e1a0d000 	mov	sp, r0
+  2c:	e1a09000 	mov	r9, r0
+  30:	e3a00000 	mov	r0, #0
+  34:	ebfffffe 	bl	0 <Cpu1Code>
 
-00000084 <JumpCpu1Code>:
-  84:	ebfffffe 	bl	0 <Cpu1Code>
+00000038 <LedValue>:
+  38:	01000000 	.word	0x01000000
 
-00000088 <LedValue>:
-  88:	01000000 	.word	0x01000000
+0000003c <LedData>:
+  3c:	ff709000 	.word	0xff709000
 
-0000008c <LedData>:
-  8c:	ff709000 	.word	0xff709000
+00000040 <c_runtime_cpu_setup_SdRamPart>:
+  40:	ee070f15 	mcr	15, 0, r0, cr7, cr5, {0}
+  44:	ee070f9a 	mcr	15, 0, r0, cr7, cr10, {4}
+  48:	ee070f95 	mcr	15, 0, r0, cr7, cr5, {4}
+  4c:	e12fff1e 	bx	lr
 
-00000090 <c_runtime_cpu_setup_SdRamPart>:
-  90:	ee070f15 	mcr	15, 0, r0, cr7, cr5, {0}
-  94:	ee070f9a 	mcr	15, 0, r0, cr7, cr10, {4}
-  98:	ee070f95 	mcr	15, 0, r0, cr7, cr5, {4}
-  9c:	e12fff1e 	bx	lr
+00000050 <cpu_init_cp15_SdRamPart>:
+  50:	e3a00000 	mov	r0, #0
+  54:	ee080f17 	mcr	15, 0, r0, cr8, cr7, {0}
+  58:	ee070f15 	mcr	15, 0, r0, cr7, cr5, {0}
+  5c:	ee070fd5 	mcr	15, 0, r0, cr7, cr5, {6}
+  60:	ee070f9a 	mcr	15, 0, r0, cr7, cr10, {4}
+  64:	ee070f95 	mcr	15, 0, r0, cr7, cr5, {4}
+  68:	ee110f10 	mrc	15, 0, r0, cr1, cr0, {0}
+  6c:	e3c00a02 	bic	r0, r0, #8192	; 0x2000
+  70:	e3c00007 	bic	r0, r0, #7
+  74:	e3800002 	orr	r0, r0, #2
+  78:	e3800b02 	orr	r0, r0, #2048	; 0x800
+  7c:	e3800a01 	orr	r0, r0, #4096	; 0x1000
+  80:	ee010f10 	mcr	15, 0, r0, cr1, cr0, {0}
+  84:	e1a0500e 	mov	r5, lr
+  88:	ee101f10 	mrc	15, 0, r1, cr0, cr0, {0}
+  8c:	e1a03a21 	lsr	r3, r1, #20
+  90:	e203300f 	and	r3, r3, #15
+  94:	e201400f 	and	r4, r1, #15
+  98:	e1a02203 	lsl	r2, r3, #4
+  9c:	e1842002 	orr	r2, r4, r2
+  a0:	e1a0f005 	mov	pc, r5
 
-000000a0 <cpu_init_cp15_SdRamPart>:
-  a0:	e3a00000 	mov	r0, #0
-  a4:	ee080f17 	mcr	15, 0, r0, cr8, cr7, {0}
-  a8:	ee070f15 	mcr	15, 0, r0, cr7, cr5, {0}
-  ac:	ee070fd5 	mcr	15, 0, r0, cr7, cr5, {6}
-  b0:	ee070f9a 	mcr	15, 0, r0, cr7, cr10, {4}
-  b4:	ee070f95 	mcr	15, 0, r0, cr7, cr5, {4}
-  b8:	ee110f10 	mrc	15, 0, r0, cr1, cr0, {0}
-  bc:	e3c00a02 	bic	r0, r0, #8192	; 0x2000
-  c0:	e3c00007 	bic	r0, r0, #7
-  c4:	e3800002 	orr	r0, r0, #2
-  c8:	e3800b02 	orr	r0, r0, #2048	; 0x800
-  cc:	e3800a01 	orr	r0, r0, #4096	; 0x1000
-  d0:	ee010f10 	mcr	15, 0, r0, cr1, cr0, {0}
-  d4:	e1a0500e 	mov	r5, lr
-  d8:	ee101f10 	mrc	15, 0, r1, cr0, cr0, {0}
-  dc:	e1a03a21 	lsr	r3, r1, #20
-  e0:	e203300f 	and	r3, r3, #15
-  e4:	e201400f 	and	r4, r1, #15
-  e8:	e1a02203 	lsl	r2, r3, #4
-  ec:	e1842002 	orr	r2, r4, r2
-  f0:	e1a0f005 	mov	pc, r5
+000000a4 <irq_SdRamPart>:
+  a4:	e92d40ff 	push	{r0, r1, r2, r3, r4, r5, r6, r7, lr}
+  a8:	ebfffffe 	bl	0 <alt_int_handler_irq>
+  ac:	e8bd40ff 	pop	{r0, r1, r2, r3, r4, r5, r6, r7, lr}
+  b0:	e25ef004 	subs	pc, lr, #4
 
-000000f4 <irq_SdRamPart>:
-  f4:	e92d40ff 	push	{r0, r1, r2, r3, r4, r5, r6, r7, lr}
-  f8:	ebfffffe 	bl	0 <alt_int_handler_irq>
-  fc:	e8bd40ff 	pop	{r0, r1, r2, r3, r4, r5, r6, r7, lr}
- 100:	e25ef004 	subs	pc, lr, #4
+000000b4 <lirq_SdRamPart>:
+  b4:	ebfffffe 	bl	b4 <lirq_SdRamPart>
 
-00000104 <lirq_SdRamPart>:
- 104:	ebfffffe 	bl	104 <lirq_SdRamPart>
+000000b8 <UartValue>:
+  b8:	00000055 	.word	0x00000055
 
-00000108 <UartValue>:
- 108:	00000055 	.word	0x00000055
-
-0000010c <UartData>:
- 10c:	ffc02000 	.word	0xffc02000
- 110:	00000000 	.word	0x00000000
- 114:	fffff000 	.word	0xfffff000
- 118:	ffc02000 	.word	0xffc02000
+000000bc <UartData>:
+  bc:	ffc02000 	.word	0xffc02000
+  c0:	00000000 	.word	0x00000000
+  c4:	3ffff000 	.word	0x3ffff000
