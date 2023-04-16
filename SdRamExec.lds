@@ -14,6 +14,7 @@ SECTIONS
   . = 0x00000100;
   *(.mainSdRamPart)
   *(.text*)
+  
  }
  . = ALIGN(4);
  .rodata : { *(SORT_BY_ALIGNMENT(SORT_BY_NAME(.rodata*))) }

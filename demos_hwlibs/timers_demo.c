@@ -77,6 +77,10 @@ uint64_t cntr_value[10];
 uint32_t intr_cnt = 0;
 
 uint32_t ledCounter     =0;
+#define		LED_PERIOD_STEP 10
+#define 	LED_PERIOD_MIN	10
+#define 	LED_PERIOD_MAX	250
+uint32_t ledPeriod		=LED_PERIOD_MIN;
 uint32_t ledValue       =0;
 volatile uint32_t timerLoopCount =0;
 
@@ -255,28 +259,32 @@ static void timers_demo_gp_timer_isr_callback()
 
     ledCounter++;
     if(ledCounter>500)
+    //if(ledCounter>ledPeriod)
     {
         timerLoopCount++;
         ledCounter =0;
-        if(ledValue==1) 
-        {
-            ledValue =0;
-            *ledData = (unsigned int) (0);
-            //putc('H');
-        }
-        else            
-        {
-            ledValue =1;
- 			*ledData = (unsigned int) (1 <<24);
-            //putc('L');
-        }
+        //if(ledValue==1) 
+        //{
+        //    ledValue =0;
+        //    *ledData = (unsigned int) (0);
+        //    //putc('H');
+        //}
+        //else            
+        //{
+        //    ledValue =1;
+ 		//	*ledData = (unsigned int) (1 <<24);
+        //    //putc('L');
+        //}
+		
+		//ledPeriod = ledPeriod + LED_PERIOD_STEP;
+		//if(ledPeriod>LED_PERIOD_MAX)		ledPeriod = LED_PERIOD_MIN;
     }
 
     if(timerLoopCount>10)
     {
         // Notify main thread
         //puts("\n\rNotify main thread\n\r");
-        //putc('N');
+        putc('N');
         GP_Timer_Interrupt_Fired = true;  // let main loop wait
         timerLoopCount =0;
     }

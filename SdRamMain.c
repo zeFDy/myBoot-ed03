@@ -1,4 +1,11 @@
 #include "common.h"
+#include "hwlibs/include/alt_interrupt.h"
+#include "hwlibs/include/alt_globaltmr.h"
+#include "hwlibs/include/alt_timers.h"
+#include "hwlibs/include/alt_clock_manager.h"
+#include "hwlibs/include/alt_watchdog.h"
+#include "hwlibs/include/socal/hps.h"
+
 
 // RESET MANAGER
 #define SOCFPGA_RSTMGR_ADDRESS	0xffd05000
@@ -6,11 +13,55 @@
 #define	RSTMGR_PER2MODRESET		SOCFPGA_RSTMGR_ADDRESS + 0x18
 
 
+
 char		tempBuffer[20];
 
 uint32_t	timerValueHigh;
 uint32_t	timerValueLow;
 
+extern bool GP_Timer_Interrupt_Fired;
+
+
+volatile unsigned int*	thisLedData 	= (unsigned int *)0xFF709000;
+uint32_t 				thisLedValue    =0;
+volatile uint32_t		j;
+int 					iCounter;
+
+
+void 		Cpu1Code()
+{
+	//*thisLedData = (unsigned int) (1 <<24);
+	uint32_t affinity = get_current_cpu_num();
+	puts("Cpu1Code affinity = 0x");
+	PutByte((uint8_t)affinity);
+	puts("\r\n");
+	if(affinity==1)	puts("RUNNING ON CORE1\r\n");
+	
+	start:
+	
+	// soft loop for around 500ms
+	//for(iCounter=0;iCounter<5000000;iCounter++)
+	for(iCounter=0;iCounter<1000000;iCounter++)
+	{
+		j=iCounter*2;
+	}
+
+	if(thisLedValue==1) 
+	{
+		thisLedValue =0;
+		//*thisLedData = (unsigned int) (0);
+		//putc('h');
+	}
+	else            
+	{
+		thisLedValue =1;
+		//*thisLedData = (unsigned int) (1 <<24);
+		//putc('l');
+	}
+	
+	goto start;
+
+}
 
 uint64_t  get_ticks(void)
 {
@@ -190,7 +241,28 @@ void SdRamMain(void)
 	puts("(_(_(___...--'\"'`         `'\"'--...___)_)_)  \n\r");
 	puts("\n\r");
 
+	uint32_t affinity = get_current_cpu_num();
+	puts("SdRamMain affinity = 0x");
+	PutByte((uint8_t)affinity);
+	puts("\r\n");
+	if(affinity==0)	puts("RUNNING ON CORE0\r\n");
+	
 	timers_demo_main();			
+	puts("End of timer demo...\n\r");
+	
+	// lever de reset du Core1
+	volatile unsigned int*	cpu1startaddr 		= (unsigned int *)0xFFD080C4;
+	volatile unsigned int*	mpumodrst 			= (unsigned int *)0xFFD05010;
+	
+	// cpu1 start
+	*cpu1startaddr = 0;
+	
+	//unsigned int mpumodrstValue = *mpumodrst;
+	//*mpumodrst = mpumodrstValue & 0xFFFFFFFD;
+	
+	//unreset cpu1
+	clrbits_le32(RSTMGR_MPUMODRESET, 1 << 1);		// cpu1=b1
+
 
 	
 	while(1)
@@ -201,6 +273,11 @@ void SdRamMain(void)
 		//	volatile	int	j=i*2;
 		//}
 
+		//while(GP_Timer_Interrupt_Fired==false);
+		//puts(".");
+		//GP_Timer_Interrupt_Fired=false;
+		
+		//#if false
 		ui64InitialValue = get_ticks();
 
 		while(1)
@@ -208,7 +285,6 @@ void SdRamMain(void)
 			uint64_t ui64ThisTickValue = get_ticks();
 			if(ui64InitialValue-ui64ThisTickValue>=5000000)	break;
 		}
-
 
 		iCounter++;
 
@@ -226,12 +302,15 @@ void SdRamMain(void)
 		// 	//putc('H');
 		// }
 		
-		if(iCounter%50==0)	
+		if(iCounter%10==0)	
 		{
 			ui64InitialValue 	=get_ticks();
 			putHexa64(ui64InitialValue);
 			puts(" - Alive and kicking...\n\r");
 		}
+		//#endif
+		
+		
 	}
 }
 

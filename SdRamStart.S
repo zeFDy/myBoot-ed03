@@ -29,8 +29,10 @@
 	.globl 	cpu_init_cp15
 */
 	.globl 	SdRamMain
+	.globl 	Cpu1Code
 	.globl	_start_SdRamPart
-
+	.globl 	_mainCore1Start
+	
 /*
  *************************************************************************
  *
@@ -113,8 +115,30 @@ fiq_SdRamPart:
 l_SdRamPart:
 	bl	l_SdRamPart			/* hang and never return */
 
+/* ici c'est reset du CPU1 */
+/* section en 0x100 pour lancer le C de l'exec en sdram pour core0 */
+	.section ".mainSdRamPart", "ax"
 
+_mainSdRamPart:
+/*
+ * Set up initial C runtime environment and call board_init_f(0).
+ */
+	/* Set vector address in CP15 VBAR register */
+	ldr	r0, =_start_SdRamPart
+	mcr	p15, 0, r0, c12, c0, 0	@Set VBAR
+
+	@ ldr	r0, =0xFFFFFF40
+	@ ldr	r0, =0xFFFFFF00
+	@ bic	r0, r0, #7	/* 8-byte alignment for ABI compliance */
+	@ mov	sp, r0
+	@ mov	r9, r0
+	@ mov	r0, #0
+		
+	bl	SdRamMain
+
+	
 reset_SdRamPart:
+
 
 	/*
 	 * disable interrupts (FIQ and IRQ), also set the cpu to SVC32 mode,
@@ -146,7 +170,41 @@ reset_SdRamPart:
 	/* the mask ROM code should have PLL and others stable */
 	bl		cpu_init_cp15_SdRamPart
 
-	bl		SdRamMain
+	/*
+	 * Set up initial C runtime environment and call board_init_f(0).
+	 */
+	 
+	/* Set vector address in CP15 VBAR register */
+	ldr	r0, =_start_SdRamPart
+	mcr	p15, 0, r0, c12, c0, 0	@Set VBAR
+
+	ldr	r0, =0xFFFFF000
+	bic	r0, r0, #7	/* 8-byte alignment for ABI compliance */
+	mov	sp, r0
+	mov	r9, r0
+	mov	r0, #0
+		
+	MRC p15, 0, r1, c0, c0, 5
+	and r1, #0xFF
+	cmp r1, #1
+	bne JumpCpu1Code
+	
+	ldr r0, ='1'
+	ldr r1, =0xFFC02000	/* UartData */ 
+	str r0, [r1, #0]
+	
+	ldr r0, LedValue	/* 1<<24 */
+	ldr r1, LedData		/* LedData port in memory */
+	str r0, [r1, #0]
+
+JumpCpu1Code:
+	bl	Cpu1Code
+	
+	
+	/*bl		SdRamMain*/
+
+LedValue:	.word 	0x01000000
+LedData:	.word 	0xFF709000
 
 /*------------------------------------------------------------------------------*/
 
@@ -203,23 +261,7 @@ cpu_init_cp15_SdRamPart:
 
 	mov	pc, r5			@ back to my caller
 
-	.section ".mainSdRamPart", "ax"
 
-_mainSdRamPart:
-/*
- * Set up initial C runtime environment and call board_init_f(0).
- */
-	/* Set vector address in CP15 VBAR register */
-	ldr	r0, =_start_SdRamPart
-	mcr	p15, 0, r0, c12, c0, 0	@Set VBAR
-
-	@ ldr	r0, =0xFFFFFF40
-	@ ldr	r0, =0xFFFFFF00
-	@ bic	r0, r0, #7	/* 8-byte alignment for ABI compliance */
-	@ mov	sp, r0
-	@ mov	r9, r0
-	@ mov	r0, #0
-	bl	SdRamMain
 
 //
 // IRQ - set LED & send carac for the moment
@@ -245,8 +287,6 @@ irq_SdRamPart:	push {r0-r7, lr}
 lirq_SdRamPart:
 		bl	lirq_SdRamPart				/* on boucle ici (pour le moment) */
 
-LedValue:	.word 	0x01000000
-LedData:	.word 	0xFF709000
 
 UartValue:	.word 	'U'
 UartData:	.word	0xFFC02000
