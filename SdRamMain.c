@@ -5,6 +5,7 @@
 #include "hwlibs/include/alt_clock_manager.h"
 #include "hwlibs/include/alt_watchdog.h"
 #include "hwlibs/include/socal/hps.h"
+#include "ourDateTime.h"
 
 
 // RESET MANAGER
@@ -227,7 +228,8 @@ void SdRamMain(void)
 
 	puts("Hello my friend\n\r");
 	puts("Welcome to the other side !\n\r");
-	puts("Version by FDy ("__DATE__" - "__TIME__")\n\r");	
+	//puts("Version by FDy ("__DATE__" - "__TIME__")\n\r");	
+	puts("Version by FDy ("OUR_DATE_TIME")\n\r");	
 
 	puts("\n\r");
 	puts("              ,   .-'\"'=;_  ,                \n\r");

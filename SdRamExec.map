@@ -7,7 +7,7 @@ start address 0x00000000
 
 Program Header:
     LOAD off    0x00010000 vaddr 0x00000000 paddr 0x00000000 align 2**16
-         filesz 0x00006994 memsz 0x00006994 flags rwx
+         filesz 0x00006990 memsz 0x00006990 flags rwx
    STACK off    0x00000000 vaddr 0x00000000 paddr 0x00000000 align 2**4
          filesz 0x00000000 memsz 0x00000000 flags rwx
 private flags = 0x5000200: [Version5 EABI] [soft-float ABI]
@@ -16,11 +16,11 @@ Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
   0 .text         00005bdc  00000000  00000000  00010000  2**5
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .rodata       00000ccf  00005bdc  00005bdc  00015bdc  2**0
+  1 .rodata       00000ccc  00005bdc  00005bdc  00015bdc  2**0
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  2 .data         000000e8  000068ac  000068ac  000168ac  2**2
+  2 .data         000000e8  000068a8  000068a8  000168a8  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  3 .bss          0000099c  00006994  00006994  00016994  2**2
+  3 .bss          000009a0  00006990  00006990  00016990  2**3
                   CONTENTS
   4 .ARM.attributes 0000002b  00000000  00000000  00017330  2**0
                   CONTENTS, READONLY
@@ -43,8 +43,8 @@ Idx Name          Size      VMA       LMA       File off  Algn
 SYMBOL TABLE:
 00000000 l    d  .text	00000000 .text
 00005bdc l    d  .rodata	00000000 .rodata
-000068ac l    d  .data	00000000 .data
-00006994 l    d  .bss	00000000 .bss
+000068a8 l    d  .data	00000000 .data
+00006990 l    d  .bss	00000000 .bss
 00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
 00000000 l    d  .comment	00000000 .comment
 00000000 l    d  .debug_line	00000000 .debug_line
@@ -84,9 +84,9 @@ SYMBOL TABLE:
 00000cd8 l     F .text	0000001c alt_clk_pll_source_get.part.3
 00000cf4 l     F .text	00000020 alt_clk_pll_lock_wait.constprop.4
 00001f18 l     F .text	00000100 alt_clk_within_freq_limits
-000068b4 l     O .data	00000040 alt_ext_clk_paramblok
-000068f4 l     O .data	00000060 alt_pll_clk_paramblok
-00006954 l     O .data	00000040 alt_pll_cntr_maxfreq
+000068b0 l     O .data	00000040 alt_ext_clk_paramblok
+000068f0 l     O .data	00000060 alt_pll_clk_paramblok
+00006950 l     O .data	00000040 alt_pll_cntr_maxfreq
 00000000 l    df *ABS*	00000000 alt_globaltmr.c
 00000000 l    df *ABS*	00000000 alt_interrupt.c
 00006a20 l     O .bss	00000004 alt_int_base_cpu
@@ -121,7 +121,7 @@ SYMBOL TABLE:
 00003a74 g     F .text	00000020 alt_globaltmr_comp_get64
 00004cb0 g     F .text	0000006c alt_gpt_int_is_pending
 000051c4 g     F .text	00000010 alt_wdog_core_prescaler_get
-00006994 g       .data	00000000 __rel_dyn_start
+00006990 g       .data	00000000 __rel_dyn_start
 00000d14 g     F .text	00000024 alt_clk_plls_settle_wait
 00004058 g     F .text	0000002c alt_int_dist_target_get
 00004b9c g     F .text	00000070 alt_gpt_int_clear_pending
@@ -134,7 +134,7 @@ SYMBOL TABLE:
 00003d50 g     F .text	00000014 alt_int_global_disable_ns
 00003c60 g     F .text	00000008 get_current_cpu_num
 0000558c g     F .text	00000044 alt_wdog_response_mode_get
-00006998 g     O .bss	00000004 j
+00006994 g     O .bss	00000004 j
 00000120 g       .text	00000000 Cpu1CodeStart
 00005068 g     F .text	0000005c alt_wdog_reset
 00003a94 g     F .text	00000010 alt_globaltmr_remain_get
@@ -148,7 +148,7 @@ SYMBOL TABLE:
 0000084c g     F .text	000000e8 timers_demo_timer1_oneshot_demo
 00004ab4 g     F .text	0000007c alt_gpt_int_enable
 00004380 g     F .text	00000018 alt_int_cpu_binary_point_set
-0000099c g       *ABS*	00000000 __bss_size
+000009a0 g       *ABS*	00000000 __bss_size
 000051d4 g     F .text	00000062 alt_wdog_counter_get_curtime_millisecs
 00004a20 g     F .text	0000006a alt_gpt_freq_get
 00003dcc g     F .text	0000003c alt_int_dist_secure_disable
@@ -159,10 +159,10 @@ SYMBOL TABLE:
 000011e0 g     F .text	00000134 alt_clk_clock_enable
 00000414 g     F .text	00000210 SdRamMain
 00003a00 g     F .text	00000038 alt_globaltmr_get64
-00006994 g       .data	00000000 __image_copy_end
+00006990 g       .data	00000000 __image_copy_end
 000002bc g     F .text	000000b0 Cpu1Code
 00005620 g     F .text	0000009c __udivsi3
-000069bc g     O .bss	00000001 GP_Timer_Interrupt_Fired
+000069b8 g     O .bss	00000001 GP_Timer_Interrupt_Fired
 0000071c g     F .text	00000130 timers_demo_timer0_freerun_demo
 00002018 g     F .text	00000030 alt_clk_pll_guard_band_get
 00000d54 g     F .text	00000010 alt_clk_lock_status_get
@@ -170,10 +170,10 @@ SYMBOL TABLE:
 0000446c g     F .text	00000038 alt_gpt_all_tmr_uninit
 0000036c g     F .text	000000a8 HexDump
 00000dcc g     F .text	0000002c alt_clk_is_in_safe_mode
-0000699c g     O .bss	00000014 tempBuffer
+00006998 g     O .bss	00000014 tempBuffer
 00005118 g     F .text	00000030 alt_wdog_counter_get_current
 00005320 g     F .text	00000060 alt_wdog_counter_get_max_nanosecs
-00006994 g     O .bss	00000004 iCounter
+00006990 g     O .bss	00000004 iCounter
 00003658 g     F .text	00000124 alt_clk_group_cfg_raw_set
 0000025c g     F .text	0000004e putHexa64
 00000d64 g     F .text	00000034 alt_clk_pll_is_locked
@@ -206,7 +206,7 @@ SYMBOL TABLE:
 00003e08 g     F .text	00000040 alt_int_dist_is_secure
 00000028 g       .text	00000000 _prefetch_abort_SdRamPart
 000045a4 g     F .text	00000064 alt_gpt_tmr_is_running
-000069bd g     O .bss	00000001 Global_Timer_Interrupt_Fired
+000069b9 g     O .bss	00000001 Global_Timer_Interrupt_Fired
 00004d9c g     F .text	0000008c alt_gpt_mode_set
 00003bd4 g     F .text	00000006 alt_globaltmr_maxcounter_get
 00000024 g       .text	00000000 _software_interrupt_SdRamPart
@@ -247,7 +247,7 @@ SYMBOL TABLE:
 00003a50 g     F .text	00000024 alt_globaltmr_comp_get
 0000142c g     F .text	000001f4 alt_clk_source_get
 00004c38 g     F .text	00000078 alt_gpt_int_disable
-00006994 g       .bss	00000000 __bss_start
+00006990 g       .bss	00000000 __bss_start
 000010c0 g     F .text	00000120 alt_clk_clock_disable
 00005ac0 g     F .text	0000009e memset
 00004eac g     F .text	00000028 alt_ARM_wdog_gpt_mode_set
@@ -271,7 +271,7 @@ SYMBOL TABLE:
 00003c28 g     F .text	00000010 alt_globaltmr_int_clear_pending
 0000377c g     F .text	000000b2 alt_clk_pll_cntr_maxfreq_recalc
 00004898 g     F .text	000000a0 alt_gpt_delay_ns
-000069b8 g     O .bss	00000004 timerValueLow
+000069b4 g     O .bss	00000004 timerValueLow
 00003960 g     F .text	00000010 alt_globaltmr_is_running
 00000df8 g     F .text	0000013c alt_clk_pll_bypass_disable
 000055d0 g     F .text	00000028 alt_wdog_compcode_get
@@ -286,11 +286,11 @@ SYMBOL TABLE:
 00003830 g     F .text	0000012c alt_clk_clkmgr_reinit
 00004398 g     F .text	0000000c alt_int_cpu_binary_point_get_ns
 00003eb8 g     F .text	00000044 alt_int_dist_is_enabled
-00006994 g       .data	00000000 _image_binary_end
+00006990 g       .data	00000000 _image_binary_end
 00000d98 g     F .text	00000034 alt_clk_safe_mode_clear
 00004530 g     F .text	00000074 alt_gpt_tmr_start
 00003c6c g     F .text	00000014 alt_int_global_enable
-000068b0 g     O .data	00000004 ledPeriod
+000068ac g     O .data	00000004 ledPeriod
 0000530a g     F .text	00000016 alt_wdog_counter_get_max
 00005470 g     F .text	00000040 alt_wdog_int_is_enabled
 000042b4 g     F .text	00000014 alt_int_cpu_disable_ns
@@ -298,7 +298,7 @@ SYMBOL TABLE:
 00004724 g     F .text	00000024 alt_gpt_maxcounter_get
 000042f0 g     F .text	00000028 alt_int_cpu_config_get
 00003d8c g     F .text	00000040 alt_int_dist_secure_enable
-000069b0 g     O .bss	00000004 thisLedValue
+000069ac g     O .bss	00000004 thisLedValue
 00003c18 g     F .text	00000010 alt_globaltmr_int_is_enabled
 000053e4 g     F .text	00000028 alt_wdog_int_disable
 000058e0 g     F .text	00000018 __aeabi_uidivmod
@@ -325,7 +325,7 @@ SYMBOL TABLE:
 000043bc g     F .text	00000020 alt_int_isr_register
 00004084 g     F .text	00000054 alt_int_dist_target_set
 00003c38 g     F .text	00000010 alt_globaltmr_int_is_pending
-00006994 g       .data	00000000 __rel_dyn_end
+00006990 g       .data	00000000 __rel_dyn_end
 00003ab8 g     F .text	00000014 alt_globaltmr_comp_mode_stop
 00003ad0 g     F .text	00000010 alt_globaltmr_is_comp_mode
 00004f60 g     F .text	00000090 alt_wdog_stop
@@ -340,15 +340,15 @@ SYMBOL TABLE:
 000069c0 g     O .bss	00000050 cntr_value
 000052a0 g     F .text	0000006a alt_wdog_counter_get_inittime_millisecs
 00006a10 g     O .bss	00000004 intr_cnt
-000069be g     O .bss	00000001 WDOG0_Interrupt_Fired
+000069ba g     O .bss	00000001 WDOG0_Interrupt_Fired
 000058f8 g     F .text	00000018 __aeabi_idivmod
 00004880 g     F .text	0000000c alt_gpt_curtime_microsecs_get
 00003f38 g     F .text	0000003c alt_int_dist_pending_clear
 00004aa4 g     F .text	00000006 alt_gpt_maxtime_get
-000068ac g     O .data	00000004 thisLedData
+000068a8 g     O .data	00000004 thisLedData
 00003ffc g     F .text	0000002c alt_int_dist_priority_get
 0000209c g     F .text	00000190 alt_clk_divider_get
-000069b4 g     O .bss	00000004 timerValueHigh
+000069b0 g     O .bss	00000004 timerValueHigh
 00004d1c g     F .text	00000080 alt_gpt_int_if_pending_clear
 00005148 g     F .text	0000004c alt_wdog_counter_get_init
 

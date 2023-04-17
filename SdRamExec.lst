@@ -126,8 +126,8 @@ Disassembly of section .text:
      1e4:	6819      	ldr	r1, [r3, #0]
      1e6:	4770      	bx	lr
      1e8:	ffd00000 	.word	0xffd00000
-     1ec:	000069b8 	.word	0x000069b8
-     1f0:	000069b4 	.word	0x000069b4
+     1ec:	000069b4 	.word	0x000069b4
+     1f0:	000069b0 	.word	0x000069b0
 
 000001f4 <putc>:
      1f4:	4b02      	ldr	r3, [pc, #8]	; (200 <putc+0xc>)
@@ -267,13 +267,13 @@ Disassembly of section .text:
      340:	00005bdc 	.word	0x00005bdc
      344:	00005c17 	.word	0x00005c17
      348:	00005bf3 	.word	0x00005bf3
-     34c:	00006998 	.word	0x00006998
+     34c:	00006994 	.word	0x00006994
      350:	003d0900 	.word	0x003d0900
      354:	00005c06 	.word	0x00005c06
-     358:	00006994 	.word	0x00006994
+     358:	00006990 	.word	0x00006990
      35c:	001e8480 	.word	0x001e8480
-     360:	000068ac 	.word	0x000068ac
-     364:	000069b0 	.word	0x000069b0
+     360:	000068a8 	.word	0x000068a8
+     364:	000069ac 	.word	0x000069ac
      368:	00005c0a 	.word	0x00005c0a
 
 0000036c <HexDump>:
@@ -335,9 +335,9 @@ Disassembly of section .text:
      3fe:	bf00      	nop
      400:	00005c1a 	.word	0x00005c1a
      404:	00005c1e 	.word	0x00005c1e
-     408:	0000699c 	.word	0x0000699c
+     408:	00006998 	.word	0x00006998
      40c:	00005c1b 	.word	0x00005c1b
-     410:	00005cda 	.word	0x00005cda
+     410:	00005cd7 	.word	0x00005cd7
 
 00000414 <SdRamMain>:
      414:	e92d 45f8 	stmdb	sp!, {r3, r4, r5, r6, r7, r8, sl, lr}
@@ -466,43 +466,43 @@ Disassembly of section .text:
      57a:	f7ff fe96 	bl	2aa <puts>
      57e:	e7e1      	b.n	544 <SdRamMain+0x130>
      580:	ffd00000 	.word	0xffd00000
-     584:	000069b4 	.word	0x000069b4
+     584:	000069b0 	.word	0x000069b0
      588:	00005c22 	.word	0x00005c22
-     58c:	000069b8 	.word	0x000069b8
+     58c:	000069b4 	.word	0x000069b4
      590:	00005c34 	.word	0x00005c34
      594:	00005c52 	.word	0x00005c52
-     598:	00005cda 	.word	0x00005cda
-     59c:	00005c7c 	.word	0x00005c7c
-     5a0:	00005cac 	.word	0x00005cac
-     5a4:	00005cdd 	.word	0x00005cdd
-     5a8:	00005d0d 	.word	0x00005d0d
-     5ac:	00005d3d 	.word	0x00005d3d
-     5b0:	00005d6d 	.word	0x00005d6d
-     5b4:	00005d9d 	.word	0x00005d9d
-     5b8:	00005dcd 	.word	0x00005dcd
-     5bc:	00005dfd 	.word	0x00005dfd
-     5c0:	00005e2d 	.word	0x00005e2d
-     5c4:	00005e5d 	.word	0x00005e5d
-     5c8:	00005e8d 	.word	0x00005e8d
-     5cc:	00005ebd 	.word	0x00005ebd
-     5d0:	00005eed 	.word	0x00005eed
-     5d4:	00005f1d 	.word	0x00005f1d
-     5d8:	00005f4d 	.word	0x00005f4d
-     5dc:	00005f7d 	.word	0x00005f7d
-     5e0:	00005fad 	.word	0x00005fad
-     5e4:	00005fdd 	.word	0x00005fdd
-     5e8:	0000600d 	.word	0x0000600d
-     5ec:	0000603d 	.word	0x0000603d
-     5f0:	0000606d 	.word	0x0000606d
-     5f4:	0000609d 	.word	0x0000609d
-     5f8:	000060cd 	.word	0x000060cd
-     5fc:	000060fd 	.word	0x000060fd
+     598:	00005cd7 	.word	0x00005cd7
+     59c:	00005c79 	.word	0x00005c79
+     5a0:	00005ca9 	.word	0x00005ca9
+     5a4:	00005cda 	.word	0x00005cda
+     5a8:	00005d0a 	.word	0x00005d0a
+     5ac:	00005d3a 	.word	0x00005d3a
+     5b0:	00005d6a 	.word	0x00005d6a
+     5b4:	00005d9a 	.word	0x00005d9a
+     5b8:	00005dca 	.word	0x00005dca
+     5bc:	00005dfa 	.word	0x00005dfa
+     5c0:	00005e2a 	.word	0x00005e2a
+     5c4:	00005e5a 	.word	0x00005e5a
+     5c8:	00005e8a 	.word	0x00005e8a
+     5cc:	00005eba 	.word	0x00005eba
+     5d0:	00005eea 	.word	0x00005eea
+     5d4:	00005f1a 	.word	0x00005f1a
+     5d8:	00005f4a 	.word	0x00005f4a
+     5dc:	00005f7a 	.word	0x00005f7a
+     5e0:	00005faa 	.word	0x00005faa
+     5e4:	00005fda 	.word	0x00005fda
+     5e8:	0000600a 	.word	0x0000600a
+     5ec:	0000603a 	.word	0x0000603a
+     5f0:	0000606a 	.word	0x0000606a
+     5f4:	0000609a 	.word	0x0000609a
+     5f8:	000060ca 	.word	0x000060ca
+     5fc:	000060fa 	.word	0x000060fa
      600:	00005c17 	.word	0x00005c17
-     604:	00006115 	.word	0x00006115
+     604:	00006112 	.word	0x00006112
      608:	00005c06 	.word	0x00005c06
      60c:	004c4b3f 	.word	0x004c4b3f
-     610:	0000613f 	.word	0x0000613f
-     614:	00006128 	.word	0x00006128
+     610:	0000613c 	.word	0x0000613c
+     614:	00006125 	.word	0x00006125
      618:	ffd08000 	.word	0xffd08000
      61c:	00000120 	.word	0x00000120
      620:	ffd05000 	.word	0xffd05000
@@ -513,7 +513,7 @@ Disassembly of section .text:
      628:	f7ff fe3f 	bl	2aa <puts>
      62c:	e7fe      	b.n	62c <hang+0x8>
      62e:	bf00      	nop
-     630:	0000617d 	.word	0x0000617d
+     630:	0000617a 	.word	0x0000617a
 
 00000634 <timers_demo_gp_timer_isr_callback>:
      634:	b510      	push	{r4, lr}
@@ -557,8 +557,8 @@ Disassembly of section .text:
      688:	00006a14 	.word	0x00006a14
      68c:	00006a1c 	.word	0x00006a1c
      690:	00006a18 	.word	0x00006a18
-     694:	0000624a 	.word	0x0000624a
-     698:	000069bc 	.word	0x000069bc
+     694:	00006247 	.word	0x00006247
+     698:	000069b8 	.word	0x000069b8
 
 0000069c <timers_demo_glbl_timer_isr_callback>:
      69c:	b538      	push	{r3, r4, r5, lr}
@@ -581,7 +581,7 @@ Disassembly of section .text:
      6c6:	bf00      	nop
      6c8:	00006a10 	.word	0x00006a10
      6cc:	000069c0 	.word	0x000069c0
-     6d0:	000069bd 	.word	0x000069bd
+     6d0:	000069b9 	.word	0x000069b9
 
 000006d4 <timers_demo_wdog0_isr_callback>:
      6d4:	b508      	push	{r3, lr}
@@ -591,7 +591,7 @@ Disassembly of section .text:
      6de:	2201      	movs	r2, #1
      6e0:	701a      	strb	r2, [r3, #0]
      6e2:	bd08      	pop	{r3, pc}
-     6e4:	000069be 	.word	0x000069be
+     6e4:	000069ba 	.word	0x000069ba
 
 000006e8 <timers_demo_system_init>:
      6e8:	b508      	push	{r3, lr}
@@ -608,9 +608,9 @@ Disassembly of section .text:
      70a:	2000      	movs	r0, #0
      70c:	bd08      	pop	{r3, pc}
      70e:	bf00      	nop
-     710:	00005cda 	.word	0x00005cda
-     714:	0000627a 	.word	0x0000627a
-     718:	00006299 	.word	0x00006299
+     710:	00005cd7 	.word	0x00005cd7
+     714:	00006277 	.word	0x00006277
+     718:	00006296 	.word	0x00006296
 
 0000071c <timers_demo_timer0_freerun_demo>:
      71c:	b538      	push	{r3, r4, r5, lr}
@@ -702,20 +702,20 @@ Disassembly of section .text:
      80a:	f04f 34ff 	mov.w	r4, #4294967295
      80e:	f7ff fd4c 	bl	2aa <puts>
      812:	e7f7      	b.n	804 <timers_demo_timer0_freerun_demo+0xe8>
-     814:	00005cda 	.word	0x00005cda
-     818:	000062d8 	.word	0x000062d8
-     81c:	000062fd 	.word	0x000062fd
-     820:	0000631f 	.word	0x0000631f
-     824:	00006350 	.word	0x00006350
-     828:	0000636e 	.word	0x0000636e
-     82c:	0000639a 	.word	0x0000639a
-     830:	000063ba 	.word	0x000063ba
-     834:	000063e8 	.word	0x000063e8
-     838:	000063ee 	.word	0x000063ee
-     83c:	00006421 	.word	0x00006421
-     840:	00006454 	.word	0x00006454
-     844:	0000647e 	.word	0x0000647e
-     848:	000064ad 	.word	0x000064ad
+     814:	00005cd7 	.word	0x00005cd7
+     818:	000062d5 	.word	0x000062d5
+     81c:	000062fa 	.word	0x000062fa
+     820:	0000631c 	.word	0x0000631c
+     824:	0000634d 	.word	0x0000634d
+     828:	0000636b 	.word	0x0000636b
+     82c:	00006397 	.word	0x00006397
+     830:	000063b7 	.word	0x000063b7
+     834:	000063e5 	.word	0x000063e5
+     838:	000063eb 	.word	0x000063eb
+     83c:	0000641e 	.word	0x0000641e
+     840:	00006451 	.word	0x00006451
+     844:	0000647b 	.word	0x0000647b
+     848:	000064aa 	.word	0x000064aa
 
 0000084c <timers_demo_timer1_oneshot_demo>:
      84c:	b538      	push	{r3, r4, r5, lr}
@@ -785,41 +785,41 @@ Disassembly of section .text:
      8f2:	4620      	mov	r0, r4
      8f4:	bd38      	pop	{r3, r4, r5, pc}
      8f6:	bf00      	nop
-     8f8:	000069bc 	.word	0x000069bc
-     8fc:	00005cda 	.word	0x00005cda
-     900:	000064d1 	.word	0x000064d1
-     904:	000064f3 	.word	0x000064f3
-     908:	00006514 	.word	0x00006514
+     8f8:	000069b8 	.word	0x000069b8
+     8fc:	00005cd7 	.word	0x00005cd7
+     900:	000064ce 	.word	0x000064ce
+     904:	000064f0 	.word	0x000064f0
+     908:	00006511 	.word	0x00006511
      90c:	000186a0 	.word	0x000186a0
      910:	00006a1c 	.word	0x00006a1c
      914:	00000635 	.word	0x00000635
-     918:	0000653c 	.word	0x0000653c
-     91c:	00006562 	.word	0x00006562
-     920:	0000657e 	.word	0x0000657e
-     924:	000065a9 	.word	0x000065a9
-     928:	000065c8 	.word	0x000065c8
-     92c:	00006614 	.word	0x00006614
-     930:	000065f1 	.word	0x000065f1
+     918:	00006539 	.word	0x00006539
+     91c:	0000655f 	.word	0x0000655f
+     920:	0000657b 	.word	0x0000657b
+     924:	000065a6 	.word	0x000065a6
+     928:	000065c5 	.word	0x000065c5
+     92c:	00006611 	.word	0x00006611
+     930:	000065ee 	.word	0x000065ee
 
 00000934 <timers_demo_global_timer_demo>:
      934:	e92d 41f3 	stmdb	sp!, {r0, r1, r4, r5, r6, r7, r8, lr}
-     938:	4832      	ldr	r0, [pc, #200]	; (a04 <__bss_size+0x68>)
+     938:	4832      	ldr	r0, [pc, #200]	; (a04 <__bss_size+0x64>)
      93a:	f7ff fcb6 	bl	2aa <puts>
-     93e:	4832      	ldr	r0, [pc, #200]	; (a08 <__bss_size+0x6c>)
+     93e:	4832      	ldr	r0, [pc, #200]	; (a08 <__bss_size+0x68>)
      940:	f7ff fcb3 	bl	2aa <puts>
-     944:	4831      	ldr	r0, [pc, #196]	; (a0c <__bss_size+0x70>)
+     944:	4831      	ldr	r0, [pc, #196]	; (a0c <__bss_size+0x6c>)
      946:	f7ff fcb0 	bl	2aa <puts>
      94a:	f003 f82f 	bl	39ac <alt_globaltmr_start>
      94e:	2800      	cmp	r0, #0
-     950:	d155      	bne.n	9fe <__bss_size+0x62>
+     950:	d155      	bne.n	9fe <__bss_size+0x5e>
      952:	4602      	mov	r2, r0
-     954:	492e      	ldr	r1, [pc, #184]	; (a10 <__bss_size+0x74>)
+     954:	492e      	ldr	r1, [pc, #184]	; (a10 <__bss_size+0x70>)
      956:	201b      	movs	r0, #27
      958:	f003 fd30 	bl	43bc <alt_int_isr_register>
      95c:	2800      	cmp	r0, #0
-     95e:	d14e      	bne.n	9fe <__bss_size+0x62>
-     960:	4c2c      	ldr	r4, [pc, #176]	; (a14 <__bss_size+0x78>)
-     962:	482d      	ldr	r0, [pc, #180]	; (a18 <__bss_size+0x7c>)
+     95e:	d14e      	bne.n	9fe <__bss_size+0x5e>
+     960:	4c2c      	ldr	r4, [pc, #176]	; (a14 <__bss_size+0x74>)
+     962:	482d      	ldr	r0, [pc, #180]	; (a18 <__bss_size+0x78>)
      964:	f7ff fca1 	bl	2aa <puts>
      968:	f003 f84a 	bl	3a00 <alt_globaltmr_get64>
      96c:	e9c4 0102 	strd	r0, r1, [r4, #8]
@@ -834,7 +834,7 @@ Disassembly of section .text:
      98a:	9301      	str	r3, [sp, #4]
      98c:	9b01      	ldr	r3, [sp, #4]
      98e:	f5b3 7f00 	cmp.w	r3, #512	; 0x200
-     992:	db31      	blt.n	9f8 <__bss_size+0x5c>
+     992:	db31      	blt.n	9f8 <__bss_size+0x58>
      994:	f003 f834 	bl	3a00 <alt_globaltmr_get64>
      998:	e9c4 0104 	strd	r0, r1, [r4, #16]
      99c:	e9d4 3202 	ldrd	r3, r2, [r4, #8]
@@ -844,24 +844,24 @@ Disassembly of section .text:
      9aa:	eb66 0607 	sbc.w	r6, r6, r7
      9ae:	181d      	adds	r5, r3, r0
      9b0:	eb41 0606 	adc.w	r6, r1, r6
-     9b4:	4819      	ldr	r0, [pc, #100]	; (a1c <__bss_size+0x80>)
+     9b4:	4819      	ldr	r0, [pc, #100]	; (a1c <__bss_size+0x7c>)
      9b6:	f7ff fc78 	bl	2aa <puts>
      9ba:	4631      	mov	r1, r6
      9bc:	4628      	mov	r0, r5
      9be:	f7ff fc4d 	bl	25c <putHexa64>
-     9c2:	4817      	ldr	r0, [pc, #92]	; (a20 <__bss_size+0x84>)
+     9c2:	4817      	ldr	r0, [pc, #92]	; (a20 <__bss_size+0x80>)
      9c4:	f7ff fc71 	bl	2aa <puts>
-     9c8:	4816      	ldr	r0, [pc, #88]	; (a24 <__bss_size+0x88>)
+     9c8:	4816      	ldr	r0, [pc, #88]	; (a24 <__bss_size+0x84>)
      9ca:	f7ff fc6e 	bl	2aa <puts>
      9ce:	f003 f817 	bl	3a00 <alt_globaltmr_get64>
      9d2:	e9c4 0102 	strd	r0, r1, [r4, #8]
      9d6:	f510 40fa 	adds.w	r0, r0, #32000	; 0x7d00
      9da:	f141 0100 	adc.w	r1, r1, #0
      9de:	f003 f895 	bl	3b0c <alt_globaltmr_comp_set64>
-     9e2:	b960      	cbnz	r0, 9fe <__bss_size+0x62>
+     9e2:	b960      	cbnz	r0, 9fe <__bss_size+0x5e>
      9e4:	f44f 40fa 	mov.w	r0, #32000	; 0x7d00
      9e8:	f003 f8be 	bl	3b68 <alt_globaltmr_autoinc_set>
-     9ec:	b938      	cbnz	r0, 9fe <__bss_size+0x62>
+     9ec:	b938      	cbnz	r0, 9fe <__bss_size+0x5e>
      9ee:	b002      	add	sp, #8
      9f0:	e8bd 41f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, lr}
      9f4:	f003 b8d2 	b.w	3b9c <alt_globaltmr_autoinc_mode_start>
@@ -870,15 +870,15 @@ Disassembly of section .text:
      9fc:	e7c5      	b.n	98a <timers_demo_global_timer_demo+0x56>
      9fe:	b002      	add	sp, #8
      a00:	e8bd 81f0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, pc}
-     a04:	00005cda 	.word	0x00005cda
-     a08:	000061a7 	.word	0x000061a7
-     a0c:	000061c2 	.word	0x000061c2
+     a04:	00005cd7 	.word	0x00005cd7
+     a08:	000061a4 	.word	0x000061a4
+     a0c:	000061bf 	.word	0x000061bf
      a10:	0000069d 	.word	0x0000069d
      a14:	000069c0 	.word	0x000069c0
-     a18:	000061e1 	.word	0x000061e1
-     a1c:	00006202 	.word	0x00006202
-     a20:	000063e8 	.word	0x000063e8
-     a24:	00006221 	.word	0x00006221
+     a18:	000061de 	.word	0x000061de
+     a1c:	000061ff 	.word	0x000061ff
+     a20:	000063e5 	.word	0x000063e5
+     a24:	0000621e 	.word	0x0000621e
 
 00000a28 <timers_demo_watch_dog_demo>:
      a28:	b537      	push	{r0, r1, r2, r4, r5, lr}
@@ -1003,26 +1003,26 @@ Disassembly of section .text:
      b5e:	e8bd 4030 	ldmia.w	sp!, {r4, r5, lr}
      b62:	f004 b9fd 	b.w	4f60 <alt_wdog_stop>
      b66:	bf00      	nop
-     b68:	00005cda 	.word	0x00005cda
-     b6c:	00006639 	.word	0x00006639
-     b70:	00006656 	.word	0x00006656
-     b74:	00006692 	.word	0x00006692
-     b78:	000066c7 	.word	0x000066c7
+     b68:	00005cd7 	.word	0x00005cd7
+     b6c:	00006636 	.word	0x00006636
+     b70:	00006653 	.word	0x00006653
+     b74:	0000668f 	.word	0x0000668f
+     b78:	000066c4 	.word	0x000066c4
      b7c:	000006d5 	.word	0x000006d5
-     b80:	000066fa 	.word	0x000066fa
-     b84:	0000671d 	.word	0x0000671d
-     b88:	00006856 	.word	0x00006856
-     b8c:	00006877 	.word	0x00006877
-     b90:	00006884 	.word	0x00006884
-     b94:	0000676b 	.word	0x0000676b
-     b98:	00006785 	.word	0x00006785
-     b9c:	000067aa 	.word	0x000067aa
-     ba0:	00006742 	.word	0x00006742
-     ba4:	000067cb 	.word	0x000067cb
-     ba8:	000067e5 	.word	0x000067e5
-     bac:	000069be 	.word	0x000069be
-     bb0:	0000680f 	.word	0x0000680f
-     bb4:	00006833 	.word	0x00006833
+     b80:	000066f7 	.word	0x000066f7
+     b84:	0000671a 	.word	0x0000671a
+     b88:	00006853 	.word	0x00006853
+     b8c:	00006874 	.word	0x00006874
+     b90:	00006881 	.word	0x00006881
+     b94:	00006768 	.word	0x00006768
+     b98:	00006782 	.word	0x00006782
+     b9c:	000067a7 	.word	0x000067a7
+     ba0:	0000673f 	.word	0x0000673f
+     ba4:	000067c8 	.word	0x000067c8
+     ba8:	000067e2 	.word	0x000067e2
+     bac:	000069ba 	.word	0x000069ba
+     bb0:	0000680c 	.word	0x0000680c
+     bb4:	00006830 	.word	0x00006830
 
 00000bb8 <timers_demo_system_uninit>:
      bb8:	b508      	push	{r3, lr}
@@ -1040,8 +1040,8 @@ Disassembly of section .text:
      bdc:	f004 b982 	b.w	4ee4 <alt_wdog_uninit>
      be0:	bd08      	pop	{r3, pc}
      be2:	bf00      	nop
-     be4:	00005cda 	.word	0x00005cda
-     be8:	000062ba 	.word	0x000062ba
+     be4:	00005cd7 	.word	0x00005cd7
+     be8:	000062b7 	.word	0x000062b7
 
 00000bec <timers_demo_main>:
      bec:	b508      	push	{r3, lr}
@@ -1091,8 +1091,8 @@ Disassembly of section .text:
      c62:	e8bd 4008 	ldmia.w	sp!, {r3, lr}
      c66:	f7ff bdf1 	b.w	84c <timers_demo_timer1_oneshot_demo>
      c6a:	bd08      	pop	{r3, pc}
-     c6c:	00005cda 	.word	0x00005cda
-     c70:	00006261 	.word	0x00006261
+     c6c:	00005cd7 	.word	0x00005cd7
+     c70:	0000625e 	.word	0x0000625e
 
 00000c74 <alt_clk_mgr_wait>:
      c74:	b901      	cbnz	r1, c78 <alt_clk_mgr_wait+0x4>
@@ -2291,7 +2291,7 @@ Disassembly of section .text:
     17b8:	4770      	bx	lr
     17ba:	f06f 0007 	mvn.w	r0, #7
     17be:	4770      	bx	lr
-    17c0:	000068b4 	.word	0x000068b4
+    17c0:	000068b0 	.word	0x000068b0
 
 000017c4 <alt_clk_ext_clk_freq_get>:
     17c4:	b108      	cbz	r0, 17ca <alt_clk_ext_clk_freq_get+0x6>
@@ -2316,7 +2316,7 @@ Disassembly of section .text:
     17ea:	6b18      	ldreq	r0, [r3, #48]	; 0x30
     17ec:	2000      	movne	r0, #0
     17ee:	4770      	bx	lr
-    17f0:	000068b4 	.word	0x000068b4
+    17f0:	000068b0 	.word	0x000068b0
 
 000017f4 <alt_clk_pll_cfg_get>:
     17f4:	2900      	cmp	r1, #0
@@ -2904,9 +2904,9 @@ Disassembly of section .text:
     1dba:	2718      	movs	r7, #24
     1dbc:	e736      	b.n	1c2c <alt_clk_pll_vco_cfg_set+0x128>
     1dbe:	bf00      	nop
-    1dc0:	000068f4 	.word	0x000068f4
+    1dc0:	000068f0 	.word	0x000068f0
     1dc4:	ffd04040 	.word	0xffd04040
-    1dc8:	000068b4 	.word	0x000068b4
+    1dc8:	000068b0 	.word	0x000068b0
     1dcc:	ffd04080 	.word	0xffd04080
     1dd0:	ffd040c0 	.word	0xffd040c0
 
@@ -3040,9 +3040,9 @@ Disassembly of section .text:
     1efa:	f04f 30ff 	mov.w	r0, #4294967295
     1efe:	bd70      	pop	{r4, r5, r6, pc}
     1f00:	ffd04004 	.word	0xffd04004
-    1f04:	000068b4 	.word	0x000068b4
+    1f04:	000068b0 	.word	0x000068b0
     1f08:	ffd04040 	.word	0xffd04040
-    1f0c:	000068f4 	.word	0x000068f4
+    1f0c:	000068f0 	.word	0x000068f0
     1f10:	ffd04080 	.word	0xffd04080
     1f14:	ffd040c0 	.word	0xffd040c0
 
@@ -3155,8 +3155,8 @@ Disassembly of section .text:
     2008:	e7af      	b.n	1f6a <alt_clk_within_freq_limits+0x52>
     200a:	f06f 0408 	mvn.w	r4, #8
     200e:	e7c9      	b.n	1fa4 <alt_clk_within_freq_limits+0x8c>
-    2010:	00006954 	.word	0x00006954
-    2014:	000068b4 	.word	0x000068b4
+    2010:	00006950 	.word	0x00006950
+    2014:	000068b0 	.word	0x000068b0
 
 00002018 <alt_clk_pll_guard_band_get>:
     2018:	2809      	cmp	r0, #9
@@ -3177,7 +3177,7 @@ Disassembly of section .text:
     203e:	e7f0      	b.n	2022 <alt_clk_pll_guard_band_get+0xa>
     2040:	2000      	movs	r0, #0
     2042:	4770      	bx	lr
-    2044:	000068f4 	.word	0x000068f4
+    2044:	000068f0 	.word	0x000068f0
 
 00002048 <alt_clk_pll_guard_band_set>:
     2048:	1e4b      	subs	r3, r1, #1
@@ -3209,7 +3209,7 @@ Disassembly of section .text:
     2090:	4770      	bx	lr
     2092:	f04f 30ff 	mov.w	r0, #4294967295
     2096:	4770      	bx	lr
-    2098:	000068f4 	.word	0x000068f4
+    2098:	000068f0 	.word	0x000068f0
 
 0000209c <alt_clk_divider_get>:
     209c:	2900      	cmp	r1, #0
@@ -4824,7 +4824,7 @@ Disassembly of section .text:
     3126:	4606      	mov	r6, r0
     3128:	e7ea      	b.n	3100 <alt_clk_freq_get+0x304>
     312a:	bf00      	nop
-    312c:	000068b4 	.word	0x000068b4
+    312c:	000068b0 	.word	0x000068b0
     3130:	ffd04080 	.word	0xffd04080
     3134:	ffd040c0 	.word	0xffd040c0
     3138:	ffd04070 	.word	0xffd04070
@@ -5116,7 +5116,7 @@ Disassembly of section .text:
     33f0:	2010      	movs	r0, #16
     33f2:	e5bd      	b.n	2f70 <alt_clk_freq_get+0x174>
     33f4:	ffd04010 	.word	0xffd04010
-    33f8:	000068b4 	.word	0x000068b4
+    33f8:	000068b0 	.word	0x000068b0
     33fc:	ffd040ac 	.word	0xffd040ac
     3400:	2e02      	cmp	r6, #2
     3402:	d199      	bne.n	3338 <alt_clk_freq_get+0x53c>
@@ -5681,7 +5681,7 @@ Disassembly of section .text:
     3950:	f04f 34ff 	mov.w	r4, #4294967295
     3954:	e77d      	b.n	3852 <alt_clk_clkmgr_reinit+0x22>
     3956:	bf00      	nop
-    3958:	00006954 	.word	0x00006954
+    3958:	00006950 	.word	0x00006950
 
 0000395c <alt_clk_clkmgr_uninit>:
     395c:	2000      	movs	r0, #0
@@ -6946,8 +6946,8 @@ Disassembly of section .text:
     445a:	e7f2      	b.n	4442 <alt_int_handler_irq+0x22>
     445c:	00006a20 	.word	0x00006a20
     4460:	00006a30 	.word	0x00006a30
-    4464:	00006159 	.word	0x00006159
-    4468:	00006155 	.word	0x00006155
+    4464:	00006156 	.word	0x00006156
+    4468:	00006152 	.word	0x00006152
 
 0000446c <alt_gpt_all_tmr_uninit>:
     446c:	4a0a      	ldr	r2, [pc, #40]	; (4498 <alt_gpt_all_tmr_uninit+0x2c>)

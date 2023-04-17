@@ -155,6 +155,7 @@ SdRamExec.o:	SdRamStart.o \
 				hwlibs/src/alt_interrupt.o		\
 				hwlibs/src/alt_timers.o 		\
 				hwlibs/src/alt_watchdog.o 		\
+				div64.o 						\
 				SdRamMain.o
 				$(LD) -T SdRamExec.lds SdRamStart.o \
 				SdRamMain.o \
@@ -173,5 +174,5 @@ SdRamExec.o:	SdRamStart.o \
 				$(OD) -d SdRamExec.o >SdRamExec.lst
 				$(OD) -x SdRamExec.o >SdRamExec.map
 				
-.PHONY:			echo $DATE$ > Version.h
+
 
