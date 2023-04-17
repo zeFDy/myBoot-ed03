@@ -1,0 +1,155 @@
+                                       \o.o/
+---------------------------------.ooO---(_)---Ooo.----------
+    BareMetal Boot inspired by U-BOOT
+    Custom Version myBoot-Ed03 by FDy (17/04/2023 18:24:55)
+--------------------------------------------Oooo.-----------
+                                     .oooO  (   )
+                                     (   )   ) /
+                                      \ (   (_/
+                                       \_)
+FPGA not ready.
+SDRAM init.
+SDRAM: Calibrating PHY.
+SDRAM: 0x00000400 MiB - 0x40000000 Bytes
+Sanity check ensure correct SDRAM size specified.
+INFO: Setting up SDMMC.
+INFO: SDHC Card detected.
+INFO: Card width      = 0x00000004
+INFO: Card block size = 0x00000200
+INFO: Card size       = 0x00000003B5980000
+INFO: Reading menu.rbf
+INFO: Reading from address 0x00300000, size = 0x0024A000 bytes
+menu.rbf finished to load in 5034702 ticks -> 100 ms
+INFO: Loading FPGA
+INFO: End of Loading FPGA
+Pret a recevoir fichier Applicative format RAW (fichier SdRamExec.raw) sur RS232
+Magic  is RAW1 (0x31574152)
+Offset is 0x00000000
+Length is 0x00006860
+Dump Applicative :
+0x00000000 - 46 00 00 EA 14 F0 9F E5 14 F0 9F E5 14 F0 9F E5 - F...............
+0x00000010 - 14 F0 9F E5 14 F0 9F E5 14 F0 9F E5 14 F0 9F E5 - ................
+0x00000020 - 40 00 00 00 40 00 00 00 40 00 00 00 40 00 00 00 - @...@...@...@...
+0x00000030 - 40 00 00 00 A4 01 00 00 40 00 00 00 EF BE AD DE - @.......@.......
+0x00000040 - FE FF FF EB 00 00 00 00 00 00 00 00 00 00 00 00 - ................
+0x00000050 - 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 - ................
+0x00000060 - 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 - ................
+0x00000070 - 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 - ................
+0x00000080 - 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 - ................
+0x00000090 - 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 - ................
+0x000000A0 - 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 - ................
+0x000000B0 - 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 - ................
+0x000000C0 - 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 - ................
+0x000000D0 - 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 - ................
+0x000000E0 - 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 - ................
+0x000000F0 - 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 - ................
+0x00000100 - B8 00 9F E5 10 0F 0C EE B4 00 9F E5 07 00 C0 E3 - ................
+0x00000110 - 00 D0 A0 E1 00 90 A0 E1 00 00 A0 E3 BC 00 00 FA - ................
+0x00000120 - 01 01 A0 E3 07 00 C0 E3 00 D0 A0 E1 00 90 A0 E1 - ................
+0x00000130 - 00 00 A0 E3 60 00 00 FA 00 00 00 01 00 90 70 FF - ....`.........p.
+0x00000140 - 15 0F 07 EE 9A 0F 07 EE 95 0F 07 EE 1E FF 2F E1 - ............../.
+0x00000150 - 00 00 A0 E3 17 0F 08 EE 15 0F 07 EE D5 0F 07 EE - ................
+0x00000160 - 9A 0F 07 EE 95 0F 07 EE 10 0F 11 EE 02 0A C0 E3 - ................
+0x00000170 - 07 00 C0 E3 02 00 80 E3 02 0B 80 E3 01 0A 80 E3 - ................
+0x00000180 - 10 0F 01 EE 0E 50 A0 E1 10 1F 10 EE 21 3A A0 E1 - .....P......!:..
+0x00000190 - 0F 30 03 E2 0F 40 01 E2 03 22 A0 E1 02 20 84 E1 - .0...@..."... ..
+0x000001A0 - 05 F0 A0 E1 FF 40 2D E9 9C 10 00 FA FF 40 BD E8 - .....@-......@..
+0x000001B0 - 04 F0 5E E2 FE FF FF EB 55 00 00 00 00 20 C0 FF - ..^.....U.... ..
+0x000001C0 - 00 00 00 00 00 F0 FF 3F 07 4B 58 68 BF F3 5F 8F - .......?.KXh.._.
+0x000001D0 - 06 49 0B 68 08 60 83 42 05 4B 3E BF 1A 68 02 F1 - .I.h.`.B.K>..h..
+0x000001E0 - FF 32 1A 60 19 68 70 47 00 00 D0 FF 84 68 00 00 - .2.`.hpG.....h..
+0x000001F0 - 80 68 00 00 02 4B 5A 69 92 06 FC D5 18 60 70 47 - .h...KZi.....`pG
+0x00000200 - 00 20 C0 FF 03 46 30 30 C0 B2 39 28 84 BF 37 33 - . ...F00..9(..73
+0x00000210 - D8 B2 FF F7 EF BF 08 B5 01 46 00 09 FF F7 F2 FF - .........F......
+0x00000220 - 01 F0 0F 00 BD E8 08 40 FF F7 EC BF 10 B5 04 46 - .......@.......F
+0x00000230 - 30 20 FF F7 DF FF 78 20 FF F7 DC FF 20 0E FF F7 - 0 ....x .... ...
+0x00000240 - EA FF C4 F3 07 40 FF F7 E6 FF C4 F3 07 20 FF F7 - .....@....... ..
+0x00000250 - E2 FF E0 B2 BD E8 10 40 FF F7 DD BF 38 B5 04 46 - .......@....8..F
+0x00000260 - 30 20 0D 46 FF F7 C6 FF 78 20 FF F7 C3 FF 08 0E - 0 .F....x ......
+0x00000270 - FF F7 D1 FF C5 F3 07 40 FF F7 CD FF C5 F3 07 20 - .......@....... 
+0x00000280 - FF F7 C9 FF E8 B2 FF F7 C6 FF 20 0E FF F7 C3 FF - .......... .....
+0x00000290 - C4 F3 07 40 FF F7 BF FF C4 F3 07 20 FF F7 BB FF - ...@....... ....
+0x000002A0 - E0 B2 BD E8 38 40 FF F7 B6 BF 41 1E 08 B5 11 F8 - ....8@....A.....
+0x000002B0 - 01 0F 00 B9 08 BD FF F7 9D FF F8 E7 70 B5 03 F0 - ............p...
+0x000002C0 - CF FC 04 46 1E 48 FF F7 F0 FF E0 B2 FF F7 A3 FF - ...F.H..........
+0x000002D0 - 1C 48 FF F7 EA FF 01 2C 02 D1 1B 48 FF F7 E5 FF - .H.....,...H....
+0x000002E0 - 1A 4D 00 24 1A 4E 1B 48 FF F7 DF FF 68 46 FF F7 - .M.$.N.H....hF..
+0x000002F0 - 9D FF 14 48 FF F7 D9 FF 00 23 2B 60 02 33 B3 42 - ...H.....#+`.3.B
+0x00000300 - FB D1 15 4B 01 34 15 4A 20 46 1A 60 14 4B 1A 68 - ...K.4.J F.`.K.h
+0x00000310 - 14 4B 19 68 01 29 0B BF 00 21 01 21 19 60 19 60 - .K.h.)...!.!.`.`
+0x00000320 - 14 BF 4F F0 80 73 11 60 4F F0 64 01 18 BF 13 60 - ..O..s.`O.d....`
+0x00000330 - 05 F0 D6 EA 00 29 DF D1 0B 48 FF F7 B6 FF DB E7 - .....)...H......
+0x00000340 - AC 5A 00 00 E7 5A 00 00 C3 5A 00 00 64 68 00 00 - .Z...Z...Z..dh..
+0x00000350 - 00 09 3D 00 D6 5A 00 00 60 68 00 00 80 84 1E 00 - ..=..Z..`h......
+0x00000360 - 78 67 00 00 7C 68 00 00 DA 5A 00 00 2D E9 F3 4D - xg...h...Z..-..M
+0x00000370 - 07 46 DF F8 8C 80 DF F8 8C A0 0E 46 4F F0 00 0B - .F.........FO...
+0x00000380 - B3 45 02 D3 02 B0 BD E8 F0 8D 07 EB 0B 00 1E 4D - .E.............M
+0x00000390 - FF F7 4C FF 40 46 FF F7 88 FF 00 22 29 46 10 46 - ..L.@F.....")F.F
+0x000003A0 - 01 32 01 F8 01 0B 14 2A FA D1 5C 46 B4 42 1F D8 - .2.....*..\F.B..
+0x000003B0 - 3A 5D 01 92 10 46 FF F7 2E FF 20 20 FF F7 1A FF - :]...F....  ....
+0x000003C0 - 01 9A A2 F1 20 01 5A 29 88 BF 2E 22 2A 70 01 34 - .... .Z)..."*p.4
+0x000003D0 - 0B F1 10 02 01 35 94 42 E8 D1 0C 48 A3 46 FF F7 - .....5.B...H.F..
+0x000003E0 - 64 FF 09 48 FF F7 61 FF 09 48 FF F7 5E FF C7 E7 - d..H..a..H..^...
+0x000003F0 - 50 46 FF F7 5A FF 4F F0 20 03 2B 70 E7 E7 00 BF - PF..Z.O. .+p....
+uiCpuNumber=00
+Jump to applicative
+Hello my friend
+Welcome to the other side !
+Version by FDy (17/04/2023 18:21:48)
+              ,   .-'"'=;_  ,                
+              |\.'-~`-.`-`;/|                 
+              \.` '.'~-.` './                
+              (\`,__=-'__,'/)                
+           _.-'-.( 0\_/0 ).-'-._             
+         /'.-'   ' .---. '   '-.`\           
+       /'  .' (=    (_)    =) '.  `\         
+      /'  .',  `-.__.-.__.-'  ,'.  `\        
+     (     .'.   V       V  ; '.     )       
+     (    |::  `-,__.-.__,-'  ::|    )       
+     |   /|`:.               .:'|\   |       
+     |  / | `:.              :' |`\  |       
+     | |  (  :.-------------.:  )  | |       
+     | |   ( `:.    FDy     :' )   | |       
+     | |    \ :.-----------.: /    | |       
+     | |     \`:.         .:'/     | |       
+     ) (      `\`:.     .:'/'      ) (       
+     (  `)_     ) `:._.:' (     _(`  )       
+     \  ' _)  .'           `.  (_ `  /       
+      \  '_) /   .'"```"'.   \ (_`  /        
+       `'"`  \  (         )  /  `"'`         
+   ___        `.`.       .'.'        ___     
+ .`   ``"""'''--`_)     (_'--'''"""``   `.   
+(_(_(___...--'"'`         `'"'--...___)_)_)  
+SdRamMain affinity = 0x00
+RUNNING ON CORE0
+SP=0x3FFFEFE0
+INFO: System Initialization.
+INFO: Setting up Global Timer.
+INFO: Interrupt Setup.
+INFO: SP Timer 1 One-shot Demo.
+INFO: Setting SP Timer 1 mode.
+INFO: Setting SP Timer 1 count value.
+INFO: Enabling SP Timer1 Interrupt.
+INFO: Starting SP Timer1.
+INFO: Checking if SP Timer 1 is running.
+INFO: SP Timer 1 is running.
+INFO: Waiting for SP Timer1 Interrupt.
+LHLHLH
+Notify main thread
+INFO: SP Timer1 Interrupt Fired.
+End of timer demo...
+Cpu1Code affinity = 0x01
+RUNNING ON CORE1
+SP=0x3FFFFFF0
+LHLH0xFFFFFFFFD68D1849 - Alive and kicking...
+LH
+Notify main thread
+LH0xFFFFFFFFD390CB14 - Alive and kicking...
+LHLH
+Notify main thread
+0xFFFFFFFFD0947DC7 - Alive and kicking...
+LHLH0xFFFFFFFFCD982BC8 - Alive and kicking...
+LH
+Notify main thread
+LH0xFFFFFFFFCA9BDE46 - Alive and kicking...
+LH

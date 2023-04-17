@@ -624,7 +624,7 @@ Disassembly of section .text.ReadAndDisplaySector:
 Disassembly of section .text.board_init:
 
 00000000 <board_init>:
-   0:	4bbe      	ldr	r3, [pc, #760]	; (2fc <board_init+0x2fc>)
+   0:	4bbc      	ldr	r3, [pc, #752]	; (2f4 <board_init+0x2f4>)
    2:	e92d 45f0 	stmdb	sp!, {r4, r5, r6, r7, r8, sl, lr}
    6:	b085      	sub	sp, #20
    8:	f8d3 2140 	ldr.w	r2, [r3, #320]	; 0x140
@@ -640,7 +640,7 @@ Disassembly of section .text.board_init:
   26:	2211      	movs	r2, #17
   28:	f8c3 2140 	str.w	r2, [r3, #320]	; 0x140
   2c:	f3bf 8f5f 	dmb	sy
-  30:	4ab3      	ldr	r2, [pc, #716]	; (300 <board_init+0x300>)
+  30:	4ab1      	ldr	r2, [pc, #708]	; (2f8 <board_init+0x2f8>)
   32:	2301      	movs	r3, #1
   34:	6213      	str	r3, [r2, #32]
   36:	f3bf 8f5f 	dmb	sy
@@ -652,7 +652,7 @@ Disassembly of section .text.board_init:
   4e:	f3bf 8f5f 	dmb	sy
   52:	f8c2 309c 	str.w	r3, [r2, #156]	; 0x9c
   56:	f3bf 8f5f 	dmb	sy
-  5a:	48aa      	ldr	r0, [pc, #680]	; (304 <board_init+0x304>)
+  5a:	48a8      	ldr	r0, [pc, #672]	; (2fc <board_init+0x2fc>)
   5c:	f8c2 30a0 	str.w	r3, [r2, #160]	; 0xa0
   60:	6d41      	ldr	r1, [r0, #84]	; 0x54
   62:	ea6f 3111 	mvn.w	r1, r1, lsr #12
@@ -661,11 +661,11 @@ Disassembly of section .text.board_init:
   6c:	f3bf 8f5f 	dmb	sy
   70:	6013      	str	r3, [r2, #0]
   72:	f3bf 8f5f 	dmb	sy
-  76:	4aa4      	ldr	r2, [pc, #656]	; (308 <board_init+0x308>)
+  76:	4aa2      	ldr	r2, [pc, #648]	; (300 <board_init+0x300>)
   78:	f8c2 3c00 	str.w	r3, [r2, #3072]	; 0xc00
   7c:	f7ff fffe 	bl	0 <FDy_sys_mgr_frzctrl_freeze_req>
   80:	f3bf 8f5f 	dmb	sy
-  84:	4ca1      	ldr	r4, [pc, #644]	; (30c <board_init+0x30c>)
+  84:	4c9f      	ldr	r4, [pc, #636]	; (304 <board_init+0x304>)
   86:	f06f 0340 	mvn.w	r3, #64	; 0x40
   8a:	6163      	str	r3, [r4, #20]
   8c:	f3bf 8f5f 	dmb	sy
@@ -683,7 +683,7 @@ Disassembly of section .text.board_init:
   ae:	f422 7280 	bic.w	r2, r2, #256	; 0x100
   b2:	6162      	str	r2, [r4, #20]
   b4:	f3bf 8f5f 	dmb	sy
-  b8:	4a95      	ldr	r2, [pc, #596]	; (310 <board_init+0x310>)
+  b8:	4a93      	ldr	r2, [pc, #588]	; (308 <board_init+0x308>)
   ba:	6013      	str	r3, [r2, #0]
   bc:	f3bf 8f5f 	dmb	sy
   c0:	6053      	str	r3, [r2, #4]
@@ -692,10 +692,10 @@ Disassembly of section .text.board_init:
   c8:	f041 0103 	orr.w	r1, r1, #3
   cc:	f3bf 8f5f 	dmb	sy
   d0:	6091      	str	r1, [r2, #8]
-  d2:	4a90      	ldr	r2, [pc, #576]	; (314 <board_init+0x314>)
-  d4:	4e89      	ldr	r6, [pc, #548]	; (2fc <board_init+0x2fc>)
+  d2:	4a8e      	ldr	r2, [pc, #568]	; (30c <board_init+0x30c>)
+  d4:	4e87      	ldr	r6, [pc, #540]	; (2f4 <board_init+0x2f4>)
   d6:	6013      	str	r3, [r2, #0]
-  d8:	4a8f      	ldr	r2, [pc, #572]	; (318 <board_init+0x318>)
+  d8:	4a8d      	ldr	r2, [pc, #564]	; (310 <board_init+0x310>)
   da:	6013      	str	r3, [r2, #0]
   dc:	f7ff fffe 	bl	0 <FDy_cm_basic_init>
   e0:	f8d6 30c0 	ldr.w	r3, [r6, #192]	; 0xc0
@@ -723,50 +723,50 @@ Disassembly of section .text.board_init:
  12e:	f7ff fffe 	bl	0 <board_init>
  132:	f7ff fffe 	bl	0 <fpgamgr_test_fpga_ready>
  136:	b910      	cbnz	r0, 13e <board_init+0x13e>
- 138:	4878      	ldr	r0, [pc, #480]	; (31c <board_init+0x31c>)
+ 138:	4876      	ldr	r0, [pc, #472]	; (314 <board_init+0x314>)
  13a:	f7ff fffe 	bl	0 <board_init>
- 13e:	4878      	ldr	r0, [pc, #480]	; (320 <board_init+0x320>)
+ 13e:	4876      	ldr	r0, [pc, #472]	; (318 <board_init+0x318>)
  140:	f7ff fffe 	bl	0 <board_init>
  144:	f04f 30ff 	mov.w	r0, #4294967295
  148:	f7ff fffe 	bl	0 <sdram_mmr_init_full>
  14c:	4606      	mov	r6, r0
  14e:	b118      	cbz	r0, 158 <board_init+0x158>
- 150:	4874      	ldr	r0, [pc, #464]	; (324 <board_init+0x324>)
+ 150:	4872      	ldr	r0, [pc, #456]	; (31c <board_init+0x31c>)
  152:	f7ff fffe 	bl	0 <board_init>
  156:	e7fe      	b.n	156 <board_init+0x156>
- 158:	4873      	ldr	r0, [pc, #460]	; (328 <board_init+0x328>)
+ 158:	4871      	ldr	r0, [pc, #452]	; (320 <board_init+0x320>)
  15a:	f7ff fffe 	bl	0 <board_init>
  15e:	f7ff fffe 	bl	0 <sdram_calibration_full>
  162:	b918      	cbnz	r0, 16c <board_init+0x16c>
- 164:	4871      	ldr	r0, [pc, #452]	; (32c <board_init+0x32c>)
+ 164:	486f      	ldr	r0, [pc, #444]	; (324 <board_init+0x324>)
  166:	f7ff fffe 	bl	0 <board_init>
  16a:	e7fe      	b.n	16a <board_init+0x16a>
  16c:	f7ff fffe 	bl	0 <sdram_calculate_size>
  170:	4605      	mov	r5, r0
- 172:	486f      	ldr	r0, [pc, #444]	; (330 <board_init+0x330>)
+ 172:	486d      	ldr	r0, [pc, #436]	; (328 <board_init+0x328>)
  174:	f7ff fffe 	bl	0 <board_init>
  178:	1528      	asrs	r0, r5, #20
  17a:	f7ff fffe 	bl	0 <board_init>
- 17e:	486d      	ldr	r0, [pc, #436]	; (334 <board_init+0x334>)
+ 17e:	486b      	ldr	r0, [pc, #428]	; (32c <board_init+0x32c>)
  180:	f7ff fffe 	bl	0 <board_init>
  184:	4628      	mov	r0, r5
  186:	f7ff fffe 	bl	0 <board_init>
- 18a:	486b      	ldr	r0, [pc, #428]	; (338 <board_init+0x338>)
+ 18a:	4869      	ldr	r0, [pc, #420]	; (330 <board_init+0x330>)
  18c:	f7ff fffe 	bl	0 <board_init>
- 190:	486a      	ldr	r0, [pc, #424]	; (33c <board_init+0x33c>)
+ 190:	4868      	ldr	r0, [pc, #416]	; (334 <board_init+0x334>)
  192:	f7ff fffe 	bl	0 <board_init>
  196:	4629      	mov	r1, r5
  198:	4630      	mov	r0, r6
  19a:	f7ff fffe 	bl	0 <board_init>
  19e:	42a8      	cmp	r0, r5
  1a0:	d003      	beq.n	1aa <board_init+0x1aa>
- 1a2:	4867      	ldr	r0, [pc, #412]	; (340 <board_init+0x340>)
+ 1a2:	4865      	ldr	r0, [pc, #404]	; (338 <board_init+0x338>)
  1a4:	f7ff fffe 	bl	0 <board_init>
  1a8:	e7fe      	b.n	1a8 <board_init+0x1a8>
  1aa:	f3bf 8f5f 	dmb	sy
  1ae:	f04f 33ff 	mov.w	r3, #4294967295
  1b2:	61e3      	str	r3, [r4, #28]
- 1b4:	4863      	ldr	r0, [pc, #396]	; (344 <board_init+0x344>)
+ 1b4:	4861      	ldr	r0, [pc, #388]	; (33c <board_init+0x33c>)
  1b6:	6963      	ldr	r3, [r4, #20]
  1b8:	f043 0340 	orr.w	r3, r3, #64	; 0x40
  1bc:	6163      	str	r3, [r4, #20]
@@ -778,60 +778,60 @@ Disassembly of section .text.board_init:
  1ce:	b9e0      	cbnz	r0, 20a <board_init+0x20a>
  1d0:	f7ff fffe 	bl	0 <alt_sdmmc_card_pwr_on>
  1d4:	b9c8      	cbnz	r0, 20a <board_init+0x20a>
- 1d6:	4d5c      	ldr	r5, [pc, #368]	; (348 <board_init+0x348>)
+ 1d6:	4d5a      	ldr	r5, [pc, #360]	; (340 <board_init+0x340>)
  1d8:	4628      	mov	r0, r5
  1da:	f7ff fffe 	bl	0 <alt_sdmmc_card_identify>
  1de:	b9a0      	cbnz	r0, 20a <board_init+0x20a>
  1e0:	682b      	ldr	r3, [r5, #0]
  1e2:	3b01      	subs	r3, #1
  1e4:	2b04      	cmp	r3, #4
- 1e6:	f200 80dd 	bhi.w	3a4 <board_init+0x3a4>
+ 1e6:	f200 80d7 	bhi.w	398 <board_init+0x398>
  1ea:	e8df f003 	tbb	[pc, r3]
- 1ee:	8303      	.short	0x8303
- 1f0:	d785      	.short	0xd785
- 1f2:	d9          	.byte	0xd9
+ 1ee:	7b03      	.short	0x7b03
+ 1f0:	7f7d      	.short	0x7f7d
+ 1f2:	81          	.byte	0x81
  1f3:	00          	.byte	0x00
- 1f4:	4855      	ldr	r0, [pc, #340]	; (34c <board_init+0x34c>)
+ 1f4:	4853      	ldr	r0, [pc, #332]	; (344 <board_init+0x344>)
  1f6:	f7ff fffe 	bl	0 <board_init>
- 1fa:	4853      	ldr	r0, [pc, #332]	; (348 <board_init+0x348>)
+ 1fa:	4851      	ldr	r0, [pc, #324]	; (340 <board_init+0x340>)
  1fc:	2104      	movs	r1, #4
  1fe:	f7ff fffe 	bl	0 <alt_sdmmc_card_bus_width_set>
  202:	4604      	mov	r4, r0
  204:	2800      	cmp	r0, #0
- 206:	f000 80d1 	beq.w	3ac <board_init+0x3ac>
- 20a:	4851      	ldr	r0, [pc, #324]	; (350 <board_init+0x350>)
+ 206:	f000 80cb 	beq.w	3a0 <board_init+0x3a0>
+ 20a:	484f      	ldr	r0, [pc, #316]	; (348 <board_init+0x348>)
  20c:	f7ff fffe 	bl	0 <board_init>
- 210:	4850      	ldr	r0, [pc, #320]	; (354 <board_init+0x354>)
+ 210:	484e      	ldr	r0, [pc, #312]	; (34c <board_init+0x34c>)
  212:	f7ff fffe 	bl	0 <board_init>
- 216:	4850      	ldr	r0, [pc, #320]	; (358 <board_init+0x358>)
+ 216:	484e      	ldr	r0, [pc, #312]	; (350 <board_init+0x350>)
  218:	f7ff fffe 	bl	0 <board_init>
- 21c:	484f      	ldr	r0, [pc, #316]	; (35c <board_init+0x35c>)
+ 21c:	484d      	ldr	r0, [pc, #308]	; (354 <board_init+0x354>)
  21e:	f7ff fffe 	bl	0 <board_init>
  222:	f44f 1040 	mov.w	r0, #3145728	; 0x300000
  226:	f7ff fffe 	bl	0 <board_init>
- 22a:	484d      	ldr	r0, [pc, #308]	; (360 <board_init+0x360>)
+ 22a:	484b      	ldr	r0, [pc, #300]	; (358 <board_init+0x358>)
  22c:	f7ff fffe 	bl	0 <board_init>
- 230:	484c      	ldr	r0, [pc, #304]	; (364 <board_init+0x364>)
+ 230:	484a      	ldr	r0, [pc, #296]	; (35c <board_init+0x35c>)
  232:	f7ff fffe 	bl	0 <board_init>
- 236:	484c      	ldr	r0, [pc, #304]	; (368 <board_init+0x368>)
+ 236:	484a      	ldr	r0, [pc, #296]	; (360 <board_init+0x360>)
  238:	f7ff fffe 	bl	0 <board_init>
  23c:	f7ff fffe 	bl	0 <board_init>
- 240:	4b48      	ldr	r3, [pc, #288]	; (364 <board_init+0x364>)
+ 240:	4b46      	ldr	r3, [pc, #280]	; (35c <board_init+0x35c>)
  242:	4604      	mov	r4, r0
  244:	460e      	mov	r6, r1
- 246:	4840      	ldr	r0, [pc, #256]	; (348 <board_init+0x348>)
+ 246:	483e      	ldr	r0, [pc, #248]	; (340 <board_init+0x340>)
  248:	f44f 1240 	mov.w	r2, #3145728	; 0x300000
  24c:	f44f 5180 	mov.w	r1, #4096	; 0x1000
  250:	f7ff fffe 	bl	0 <alt_sdmmc_read>
  254:	b110      	cbz	r0, 25c <board_init+0x25c>
- 256:	4845      	ldr	r0, [pc, #276]	; (36c <board_init+0x36c>)
+ 256:	4843      	ldr	r0, [pc, #268]	; (364 <board_init+0x364>)
  258:	f7ff fffe 	bl	0 <board_init>
  25c:	f7ff fffe 	bl	0 <board_init>
  260:	4607      	mov	r7, r0
- 262:	483c      	ldr	r0, [pc, #240]	; (354 <board_init+0x354>)
+ 262:	483a      	ldr	r0, [pc, #232]	; (34c <board_init+0x34c>)
  264:	460d      	mov	r5, r1
  266:	f7ff fffe 	bl	0 <board_init>
- 26a:	4841      	ldr	r0, [pc, #260]	; (370 <board_init+0x370>)
+ 26a:	483f      	ldr	r0, [pc, #252]	; (368 <board_init+0x368>)
  26c:	f7ff fffe 	bl	0 <board_init>
  270:	1be4      	subs	r4, r4, r7
  272:	eb66 0505 	sbc.w	r5, r6, r5
@@ -847,10 +847,10 @@ Disassembly of section .text.board_init:
  28e:	f8cd 8004 	str.w	r8, [sp, #4]
  292:	9600      	str	r6, [sp, #0]
  294:	f7ff fffe 	bl	0 <board_init>
- 298:	4836      	ldr	r0, [pc, #216]	; (374 <board_init+0x374>)
+ 298:	4834      	ldr	r0, [pc, #208]	; (36c <board_init+0x36c>)
  29a:	f7ff fffe 	bl	0 <board_init>
  29e:	fba4 0107 	umull	r0, r1, r4, r7
- 2a2:	4a35      	ldr	r2, [pc, #212]	; (378 <board_init+0x378>)
+ 2a2:	4a33      	ldr	r2, [pc, #204]	; (370 <board_init+0x370>)
  2a4:	2300      	movs	r3, #0
  2a6:	fb07 1105 	mla	r1, r7, r5, r1
  2aa:	f7ff fffe 	bl	0 <__aeabi_uldivmod>
@@ -858,128 +858,122 @@ Disassembly of section .text.board_init:
  2b0:	220a      	movs	r2, #10
  2b2:	e88d 0540 	stmia.w	sp, {r6, r8, sl}
  2b6:	f7ff fffe 	bl	0 <board_init>
- 2ba:	4830      	ldr	r0, [pc, #192]	; (37c <board_init+0x37c>)
+ 2ba:	482e      	ldr	r0, [pc, #184]	; (374 <board_init+0x374>)
  2bc:	f7ff fffe 	bl	0 <board_init>
- 2c0:	482f      	ldr	r0, [pc, #188]	; (380 <board_init+0x380>)
+ 2c0:	482d      	ldr	r0, [pc, #180]	; (378 <board_init+0x378>)
  2c2:	f7ff fffe 	bl	0 <board_init>
- 2c6:	492f      	ldr	r1, [pc, #188]	; (384 <board_init+0x384>)
+ 2c6:	492d      	ldr	r1, [pc, #180]	; (37c <board_init+0x37c>)
  2c8:	f44f 5080 	mov.w	r0, #4096	; 0x1000
  2cc:	f7ff fffe 	bl	0 <socfpga_load>
- 2d0:	482d      	ldr	r0, [pc, #180]	; (388 <board_init+0x388>)
+ 2d0:	482b      	ldr	r0, [pc, #172]	; (380 <board_init+0x380>)
  2d2:	f7ff fffe 	bl	0 <board_init>
- 2d6:	482d      	ldr	r0, [pc, #180]	; (38c <board_init+0x38c>)
+ 2d6:	482b      	ldr	r0, [pc, #172]	; (384 <board_init+0x384>)
  2d8:	f7ff fffe 	bl	0 <board_init>
  2dc:	f7ff fffe 	bl	0 <ChargementApplicativeViaFichierRAW>
- 2e0:	482b      	ldr	r0, [pc, #172]	; (390 <board_init+0x390>)
- 2e2:	f7ff fffe 	bl	0 <board_init>
- 2e6:	4630      	mov	r0, r6
- 2e8:	f44f 6180 	mov.w	r1, #1024	; 0x400
- 2ec:	f7ff fffe 	bl	0 <board_init>
- 2f0:	f7ff fffe 	bl	0 <board_init>
- 2f4:	4827      	ldr	r0, [pc, #156]	; (394 <board_init+0x394>)
- 2f6:	e77e      	b.n	1f6 <board_init+0x1f6>
- 2f8:	4827      	ldr	r0, [pc, #156]	; (398 <board_init+0x398>)
- 2fa:	e77c      	b.n	1f6 <board_init+0x1f6>
- 2fc:	ffd08000 	.word	0xffd08000
- 300:	ff800000 	.word	0xff800000
- 304:	fffec000 	.word	0xfffec000
- 308:	fffef000 	.word	0xfffef000
- 30c:	ffd05000 	.word	0xffd05000
- 310:	ffd00000 	.word	0xffd00000
+ 2e0:	f7ff fffe 	bl	0 <board_init>
+ 2e4:	4828      	ldr	r0, [pc, #160]	; (388 <board_init+0x388>)
+ 2e6:	e786      	b.n	1f6 <board_init+0x1f6>
+ 2e8:	4828      	ldr	r0, [pc, #160]	; (38c <board_init+0x38c>)
+ 2ea:	e784      	b.n	1f6 <board_init+0x1f6>
+ 2ec:	4828      	ldr	r0, [pc, #160]	; (390 <board_init+0x390>)
+ 2ee:	e782      	b.n	1f6 <board_init+0x1f6>
+ 2f0:	4828      	ldr	r0, [pc, #160]	; (394 <board_init+0x394>)
+ 2f2:	e780      	b.n	1f6 <board_init+0x1f6>
+ 2f4:	ffd08000 	.word	0xffd08000
+ 2f8:	ff800000 	.word	0xff800000
+ 2fc:	fffec000 	.word	0xfffec000
+ 300:	fffef000 	.word	0xfffef000
+ 304:	ffd05000 	.word	0xffd05000
+ 308:	ffd00000 	.word	0xffd00000
 	...
- 320:	00000012 	.word	0x00000012
- 324:	00000020 	.word	0x00000020
- 328:	00000034 	.word	0x00000034
- 32c:	0000004e 	.word	0x0000004e
- 330:	00000069 	.word	0x00000069
- 334:	00000071 	.word	0x00000071
- 338:	00000079 	.word	0x00000079
- 33c:	00000082 	.word	0x00000082
- 340:	000000b6 	.word	0x000000b6
- 344:	000000d0 	.word	0x000000d0
- 348:	00000000 	.word	0x00000000
- 34c:	000000ea 	.word	0x000000ea
- 350:	000001de 	.word	0x000001de
- 354:	000001ed 	.word	0x000001ed
- 358:	0000000b 	.word	0x0000000b
- 35c:	00000000 	.word	0x00000000
- 360:	000001f6 	.word	0x000001f6
- 364:	0024a000 	.word	0x0024a000
- 368:	00000200 	.word	0x00000200
- 36c:	0000004f 	.word	0x0000004f
- 370:	00000209 	.word	0x00000209
- 374:	0000021f 	.word	0x0000021f
- 378:	000f4240 	.word	0x000f4240
- 37c:	0000022a 	.word	0x0000022a
- 380:	00000230 	.word	0x00000230
- 384:	00249e78 	.word	0x00249e78
- 388:	00000245 	.word	0x00000245
- 38c:	00000261 	.word	0x00000261
- 390:	000002b4 	.word	0x000002b4
- 394:	00000105 	.word	0x00000105
- 398:	0000011f 	.word	0x0000011f
- 39c:	4822      	ldr	r0, [pc, #136]	; (428 <board_init+0x428>)
- 39e:	e72a      	b.n	1f6 <board_init+0x1f6>
- 3a0:	4822      	ldr	r0, [pc, #136]	; (42c <board_init+0x42c>)
- 3a2:	e728      	b.n	1f6 <board_init+0x1f6>
- 3a4:	4822      	ldr	r0, [pc, #136]	; (430 <board_init+0x430>)
- 3a6:	f7ff fffe 	bl	0 <board_init>
- 3aa:	e72e      	b.n	20a <board_init+0x20a>
- 3ac:	4e21      	ldr	r6, [pc, #132]	; (434 <board_init+0x434>)
- 3ae:	4622      	mov	r2, r4
- 3b0:	2180      	movs	r1, #128	; 0x80
- 3b2:	207f      	movs	r0, #127	; 0x7f
- 3b4:	f7ff fffe 	bl	0 <alt_sdmmc_fifo_param_set>
- 3b8:	4630      	mov	r0, r6
- 3ba:	f7ff fffe 	bl	0 <alt_sdmmc_card_misc_get>
- 3be:	481e      	ldr	r0, [pc, #120]	; (438 <board_init+0x438>)
+ 318:	00000012 	.word	0x00000012
+ 31c:	00000020 	.word	0x00000020
+ 320:	00000034 	.word	0x00000034
+ 324:	0000004e 	.word	0x0000004e
+ 328:	00000069 	.word	0x00000069
+ 32c:	00000071 	.word	0x00000071
+ 330:	00000079 	.word	0x00000079
+ 334:	00000082 	.word	0x00000082
+ 338:	000000b6 	.word	0x000000b6
+ 33c:	000000d0 	.word	0x000000d0
+ 340:	00000000 	.word	0x00000000
+ 344:	000000ea 	.word	0x000000ea
+ 348:	000001de 	.word	0x000001de
+ 34c:	000001ed 	.word	0x000001ed
+ 350:	0000000b 	.word	0x0000000b
+ 354:	00000000 	.word	0x00000000
+ 358:	000001f6 	.word	0x000001f6
+ 35c:	0024a000 	.word	0x0024a000
+ 360:	00000200 	.word	0x00000200
+ 364:	0000004f 	.word	0x0000004f
+ 368:	00000209 	.word	0x00000209
+ 36c:	0000021f 	.word	0x0000021f
+ 370:	000f4240 	.word	0x000f4240
+ 374:	0000022a 	.word	0x0000022a
+ 378:	00000230 	.word	0x00000230
+ 37c:	00249e78 	.word	0x00249e78
+ 380:	00000245 	.word	0x00000245
+ 384:	00000261 	.word	0x00000261
+ 388:	00000105 	.word	0x00000105
+ 38c:	0000011f 	.word	0x0000011f
+ 390:	0000013b 	.word	0x0000013b
+ 394:	0000015c 	.word	0x0000015c
+ 398:	4820      	ldr	r0, [pc, #128]	; (41c <board_init+0x41c>)
+ 39a:	f7ff fffe 	bl	0 <board_init>
+ 39e:	e734      	b.n	20a <board_init+0x20a>
+ 3a0:	4e1f      	ldr	r6, [pc, #124]	; (420 <board_init+0x420>)
+ 3a2:	4622      	mov	r2, r4
+ 3a4:	2180      	movs	r1, #128	; 0x80
+ 3a6:	207f      	movs	r0, #127	; 0x7f
+ 3a8:	f7ff fffe 	bl	0 <alt_sdmmc_fifo_param_set>
+ 3ac:	4630      	mov	r0, r6
+ 3ae:	f7ff fffe 	bl	0 <alt_sdmmc_card_misc_get>
+ 3b2:	481c      	ldr	r0, [pc, #112]	; (424 <board_init+0x424>)
+ 3b4:	f7ff fffe 	bl	0 <board_init>
+ 3b8:	68b0      	ldr	r0, [r6, #8]
+ 3ba:	f7ff fffe 	bl	0 <board_init>
+ 3be:	481a      	ldr	r0, [pc, #104]	; (428 <board_init+0x428>)
  3c0:	f7ff fffe 	bl	0 <board_init>
- 3c4:	68b0      	ldr	r0, [r6, #8]
+ 3c4:	4819      	ldr	r0, [pc, #100]	; (42c <board_init+0x42c>)
  3c6:	f7ff fffe 	bl	0 <board_init>
- 3ca:	481c      	ldr	r0, [pc, #112]	; (43c <board_init+0x43c>)
+ 3ca:	68f0      	ldr	r0, [r6, #12]
  3cc:	f7ff fffe 	bl	0 <board_init>
- 3d0:	481b      	ldr	r0, [pc, #108]	; (440 <board_init+0x440>)
+ 3d0:	4815      	ldr	r0, [pc, #84]	; (428 <board_init+0x428>)
  3d2:	f7ff fffe 	bl	0 <board_init>
- 3d6:	68f0      	ldr	r0, [r6, #12]
- 3d8:	f7ff fffe 	bl	0 <board_init>
- 3dc:	4817      	ldr	r0, [pc, #92]	; (43c <board_init+0x43c>)
- 3de:	f7ff fffe 	bl	0 <board_init>
- 3e2:	4b18      	ldr	r3, [pc, #96]	; (444 <board_init+0x444>)
- 3e4:	68f2      	ldr	r2, [r6, #12]
- 3e6:	6a68      	ldr	r0, [r5, #36]	; 0x24
- 3e8:	6a29      	ldr	r1, [r5, #32]
- 3ea:	601a      	str	r2, [r3, #0]
- 3ec:	1824      	adds	r4, r4, r0
- 3ee:	68eb      	ldr	r3, [r5, #12]
- 3f0:	4e15      	ldr	r6, [pc, #84]	; (448 <board_init+0x448>)
- 3f2:	4816      	ldr	r0, [pc, #88]	; (44c <board_init+0x44c>)
- 3f4:	fba4 4203 	umull	r4, r2, r4, r3
- 3f8:	fb03 2201 	mla	r2, r3, r1, r2
- 3fc:	e9c6 4200 	strd	r4, r2, [r6]
- 400:	f7ff fffe 	bl	0 <board_init>
- 404:	e9d6 0100 	ldrd	r0, r1, [r6]
- 408:	f7ff fffe 	bl	0 <board_init>
- 40c:	480b      	ldr	r0, [pc, #44]	; (43c <board_init+0x43c>)
- 40e:	f7ff fffe 	bl	0 <board_init>
- 412:	490f      	ldr	r1, [pc, #60]	; (450 <board_init+0x450>)
- 414:	480f      	ldr	r0, [pc, #60]	; (454 <board_init+0x454>)
- 416:	f7ff fffe 	bl	0 <alt_sdmmc_card_speed_set>
- 41a:	2800      	cmp	r0, #0
- 41c:	f47f aef5 	bne.w	20a <board_init+0x20a>
- 420:	f7ff fffe 	bl	0 <alt_sdmmc_dma_enable>
- 424:	e6f1      	b.n	20a <board_init+0x20a>
- 426:	bf00      	nop
- 428:	0000013b 	.word	0x0000013b
- 42c:	0000015c 	.word	0x0000015c
- 430:	00000178 	.word	0x00000178
- 434:	00000000 	.word	0x00000000
- 438:	00000193 	.word	0x00000193
- 43c:	0000000b 	.word	0x0000000b
- 440:	000001ac 	.word	0x000001ac
+ 3d6:	4b16      	ldr	r3, [pc, #88]	; (430 <board_init+0x430>)
+ 3d8:	68f2      	ldr	r2, [r6, #12]
+ 3da:	6a68      	ldr	r0, [r5, #36]	; 0x24
+ 3dc:	6a29      	ldr	r1, [r5, #32]
+ 3de:	601a      	str	r2, [r3, #0]
+ 3e0:	1824      	adds	r4, r4, r0
+ 3e2:	68eb      	ldr	r3, [r5, #12]
+ 3e4:	4e13      	ldr	r6, [pc, #76]	; (434 <board_init+0x434>)
+ 3e6:	4814      	ldr	r0, [pc, #80]	; (438 <board_init+0x438>)
+ 3e8:	fba4 4203 	umull	r4, r2, r4, r3
+ 3ec:	fb03 2201 	mla	r2, r3, r1, r2
+ 3f0:	e9c6 4200 	strd	r4, r2, [r6]
+ 3f4:	f7ff fffe 	bl	0 <board_init>
+ 3f8:	e9d6 0100 	ldrd	r0, r1, [r6]
+ 3fc:	f7ff fffe 	bl	0 <board_init>
+ 400:	4809      	ldr	r0, [pc, #36]	; (428 <board_init+0x428>)
+ 402:	f7ff fffe 	bl	0 <board_init>
+ 406:	490d      	ldr	r1, [pc, #52]	; (43c <board_init+0x43c>)
+ 408:	480d      	ldr	r0, [pc, #52]	; (440 <board_init+0x440>)
+ 40a:	f7ff fffe 	bl	0 <alt_sdmmc_card_speed_set>
+ 40e:	2800      	cmp	r0, #0
+ 410:	f47f aefb 	bne.w	20a <board_init+0x20a>
+ 414:	f7ff fffe 	bl	0 <alt_sdmmc_dma_enable>
+ 418:	e6f7      	b.n	20a <board_init+0x20a>
+ 41a:	bf00      	nop
+ 41c:	00000178 	.word	0x00000178
+ 420:	00000000 	.word	0x00000000
+ 424:	00000193 	.word	0x00000193
+ 428:	0000000b 	.word	0x0000000b
+ 42c:	000001ac 	.word	0x000001ac
 	...
- 44c:	000001c5 	.word	0x000001c5
- 450:	017d7840 	.word	0x017d7840
- 454:	00000000 	.word	0x00000000
+ 438:	000001c5 	.word	0x000001c5
+ 43c:	017d7840 	.word	0x017d7840
+ 440:	00000000 	.word	0x00000000
 
 Disassembly of section .text.hang:
 

@@ -7,44 +7,44 @@ start address 0xffff0000
 
 Program Header:
     LOAD off    0x00010000 vaddr 0xffff0000 paddr 0xffff0000 align 2**16
-         filesz 0x00007928 memsz 0x00007928 flags rwx
+         filesz 0x00007878 memsz 0x00007878 flags rwx
    STACK off    0x00000000 vaddr 0x00000000 paddr 0x00000000 align 2**4
          filesz 0x00000000 memsz 0x00000000 flags rwx
 private flags = 0x5000200: [Version5 EABI] [soft-float ABI]
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         000060dc  ffff0000  ffff0000  00010000  2**5
+  0 .text         0000603c  ffff0000  ffff0000  00010000  2**5
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .rodata       00001738  ffff60dc  ffff60dc  000160dc  2**2
+  1 .rodata       00001725  ffff603c  ffff603c  0001603c  2**2
                   CONTENTS, ALLOC, LOAD, READONLY, DATA
-  2 .data         00000114  ffff7814  ffff7814  00017814  2**2
+  2 .data         00000114  ffff7764  ffff7764  00017764  2**2
                   CONTENTS, ALLOC, LOAD, DATA
-  3 .bss          000010c0  ffff7928  ffff7928  00017928  2**3
+  3 .bss          000010b0  ffff7878  ffff7878  00017878  2**3
                   CONTENTS
-  4 .ARM.attributes 0000002b  00000000  00000000  000189e8  2**0
+  4 .ARM.attributes 0000002b  00000000  00000000  00018928  2**0
                   CONTENTS, READONLY
-  5 .comment      0000006d  00000000  00000000  00018a13  2**0
+  5 .comment      0000006d  00000000  00000000  00018953  2**0
                   CONTENTS, READONLY
-  6 .debug_line   00000251  00000000  00000000  00018a80  2**0
+  6 .debug_line   00000251  00000000  00000000  000189c0  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
-  7 .debug_info   00000196  00000000  00000000  00018cd1  2**0
+  7 .debug_info   00000196  00000000  00000000  00018c11  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
-  8 .debug_abbrev 00000098  00000000  00000000  00018e67  2**0
+  8 .debug_abbrev 00000098  00000000  00000000  00018da7  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
-  9 .debug_aranges 000000a8  00000000  00000000  00018f00  2**3
+  9 .debug_aranges 000000a8  00000000  00000000  00018e40  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 10 .debug_ranges 00000050  00000000  00000000  00018fa8  2**3
+ 10 .debug_ranges 00000050  00000000  00000000  00018ee8  2**3
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 11 .debug_str    000001b0  00000000  00000000  00018ff8  2**0
+ 11 .debug_str    000001b0  00000000  00000000  00018f38  2**0
                   CONTENTS, READONLY, DEBUGGING, OCTETS
- 12 .debug_frame  00000020  00000000  00000000  000191a8  2**2
+ 12 .debug_frame  00000020  00000000  00000000  000190e8  2**2
                   CONTENTS, READONLY, DEBUGGING, OCTETS
 SYMBOL TABLE:
 ffff0000 l    d  .text	00000000 .text
-ffff60dc l    d  .rodata	00000000 .rodata
-ffff7814 l    d  .data	00000000 .data
-ffff7928 l    d  .bss	00000000 .bss
+ffff603c l    d  .rodata	00000000 .rodata
+ffff7764 l    d  .data	00000000 .data
+ffff7878 l    d  .bss	00000000 .bss
 00000000 l    d  .ARM.attributes	00000000 .ARM.attributes
 00000000 l    d  .comment	00000000 .comment
 00000000 l    d  .debug_line	00000000 .debug_line
@@ -72,231 +72,229 @@ ffff0128 l       .text	00000000 LedData
 00000000 l    df *ABS*	00000000 spl.c
 00000000 l    df *ABS*	00000000 RawFileReader.c
 00000000 l    df *ABS*	00000000 ClockManager.c
-ffff0bdc l     F .text	00000014 FDy_cm_wait_for_fsm
-ffff0bf0 l     F .text	00000020 FDy_cm_write_with_phase.constprop.0
+ffff0b34 l     F .text	00000014 FDy_cm_wait_for_fsm
+ffff0b48 l     F .text	00000020 FDy_cm_write_with_phase.constprop.0
 00000000 l    df *ABS*	00000000 FpgaManager.c
-ffff0e8c l     F .text	00000014 fpgamgr_set_cd_ratio
-ffff0ea0 l     F .text	00000040 fpgamgr_dclkcnt_set
-ffff0ee0 l     F .text	00000014 is_fpgamgr_initdone_high
+ffff0de4 l     F .text	00000014 fpgamgr_set_cd_ratio
+ffff0df8 l     F .text	00000040 fpgamgr_dclkcnt_set
+ffff0e38 l     F .text	00000014 is_fpgamgr_initdone_high
 00000000 l    df *ABS*	00000000 FreezeManager.c
 00000000 l    df *ABS*	00000000 ScanManager.c
-ffff1284 l     F .text	000000f4 FDy_scan_mgr_io_scan_chain_prg
+ffff11dc l     F .text	000000f4 FDy_scan_mgr_io_scan_chain_prg
 00000000 l    df *ABS*	00000000 sdram.c
-ffff1454 l     F .text	0000006c sdram_set_rule
-ffff7756 l     O .rodata	0000003b rw_mgr_config
+ffff13ac l     F .text	0000006c sdram_set_rule
+ffff76a3 l     O .rodata	0000003b rw_mgr_config
 00000000 l    df *ABS*	00000000 sequencer.c
-ffff1854 l     F .text	00000018 set_failing_group_stage
-ffff186c l     F .text	00000018 reg_file_set_group
-ffff1884 l     F .text	00000018 reg_file_set_stage
-ffff189c l     F .text	00000018 reg_file_set_sub_stage
-ffff18b4 l     F .text	00000078 set_rank_and_odt_mask
-ffff192c l     F .text	00000014 scc_mgr_set
-ffff1940 l     F .text	00000018 scc_mgr_set_dqs_out1_delay
-ffff1958 l     F .text	00000044 scc_mgr_set_all_ranks
-ffff199c l     F .text	0000000e scc_mgr_set_dqs_en_phase_all_ranks
-ffff19aa l     F .text	0000000e scc_mgr_set_dqs_en_delay_all_ranks
-ffff19b8 l     F .text	00000038 scc_mgr_set_oct_out1_delay
-ffff19f0 l     F .text	00000038 scc_mgr_load_dqs_for_write_group
-ffff1a28 l     F .text	00000028 set_jump_as_return
-ffff1a50 l     F .text	000000b8 delay_for_n_mem_clocks
-ffff1b08 l     F .text	00000054 rw_mgr_mem_init_load_regs
-ffff1b5c l     F .text	00000100 rw_mgr_mem_load_user
-ffff1c5c l     F .text	00000028 rw_mgr_decr_vfifo
-ffff1c84 l     F .text	00000068 mem_precharge_and_activate
-ffff1cec l     F .text	000001a4 rw_mgr_mem_calibrate_read_test.constprop.0
-ffff1e90 l     F .text	00000090 rw_mgr_mem_calibrate_read_load_patterns.constprop.0
-ffff1f20 l     F .text	000001c8 rw_mgr_mem_calibrate_write_test.constprop.0
-ffff20e8 l     F .text	00000098 search_stop_check.constprop.0
-ffff2180 l     F .text	000000f8 scc_mgr_zero_group
-ffff2278 l     F .text	0000001a rw_mgr_mem_calibrate_read_test_all_ranks.isra.0
-ffff2294 l     F .text	0000006c sdr_find_phase_delay
-ffff2300 l     F .text	00000030 scc_mgr_apply_group_dqs_io_and_oct_out1
-ffff2330 l     F .text	0000007c sdr_find_phase
-ffff23ac l     F .text	0000004c scc_mgr_apply_group_dm_out1_delay
-ffff23f8 l     F .text	000000d8 search_window
-ffff24d0 l     F .text	00000034 scc_mgr_apply_group_dq_out1_delay
-ffff2504 l     F .text	00000100 center_dq_windows
-ffff2604 l     F .text	00000038 scc_mgr_apply_group_dq_in_delay
-ffff263c l     F .text	00000128 search_left_edge.constprop.0
-ffff2764 l     F .text	00000174 search_right_edge
-ffff28d8 l     F .text	00000270 rw_mgr_mem_calibrate_dq_dqs_centering.isra.0
-ffff7994 l     O .bss	00000002 dyn_calib_steps
-ffff7998 l     O .bss	00000004 gbl
-ffff79a4 l     O .bss	00000004 param
-ffff79ac l     O .bss	00000002 skip_delay_mask
-ffff6d98 l     O .rodata	00000004 CSWTCH.702
-ffff6d9c l     O .rodata	00000004 CSWTCH.703
+ffff17ac l     F .text	00000018 set_failing_group_stage
+ffff17c4 l     F .text	00000018 reg_file_set_group
+ffff17dc l     F .text	00000018 reg_file_set_stage
+ffff17f4 l     F .text	00000018 reg_file_set_sub_stage
+ffff180c l     F .text	00000078 set_rank_and_odt_mask
+ffff1884 l     F .text	00000014 scc_mgr_set
+ffff1898 l     F .text	00000018 scc_mgr_set_dqs_out1_delay
+ffff18b0 l     F .text	00000044 scc_mgr_set_all_ranks
+ffff18f4 l     F .text	0000000e scc_mgr_set_dqs_en_phase_all_ranks
+ffff1902 l     F .text	0000000e scc_mgr_set_dqs_en_delay_all_ranks
+ffff1910 l     F .text	00000038 scc_mgr_set_oct_out1_delay
+ffff1948 l     F .text	00000038 scc_mgr_load_dqs_for_write_group
+ffff1980 l     F .text	00000028 set_jump_as_return
+ffff19a8 l     F .text	000000b8 delay_for_n_mem_clocks
+ffff1a60 l     F .text	00000054 rw_mgr_mem_init_load_regs
+ffff1ab4 l     F .text	00000100 rw_mgr_mem_load_user
+ffff1bb4 l     F .text	00000028 rw_mgr_decr_vfifo
+ffff1bdc l     F .text	00000068 mem_precharge_and_activate
+ffff1c44 l     F .text	000001a4 rw_mgr_mem_calibrate_read_test.constprop.0
+ffff1de8 l     F .text	00000090 rw_mgr_mem_calibrate_read_load_patterns.constprop.0
+ffff1e78 l     F .text	000001c8 rw_mgr_mem_calibrate_write_test.constprop.0
+ffff2040 l     F .text	00000098 search_stop_check.constprop.0
+ffff20d8 l     F .text	000000f8 scc_mgr_zero_group
+ffff21d0 l     F .text	0000001a rw_mgr_mem_calibrate_read_test_all_ranks.isra.0
+ffff21ec l     F .text	0000006c sdr_find_phase_delay
+ffff2258 l     F .text	00000030 scc_mgr_apply_group_dqs_io_and_oct_out1
+ffff2288 l     F .text	0000007c sdr_find_phase
+ffff2304 l     F .text	0000004c scc_mgr_apply_group_dm_out1_delay
+ffff2350 l     F .text	000000d8 search_window
+ffff2428 l     F .text	00000034 scc_mgr_apply_group_dq_out1_delay
+ffff245c l     F .text	00000100 center_dq_windows
+ffff255c l     F .text	00000038 scc_mgr_apply_group_dq_in_delay
+ffff2594 l     F .text	00000128 search_left_edge.constprop.0
+ffff26bc l     F .text	00000174 search_right_edge
+ffff2830 l     F .text	00000270 rw_mgr_mem_calibrate_dq_dqs_centering.isra.0
+ffff78d0 l     O .bss	00000002 dyn_calib_steps
+ffff78d4 l     O .bss	00000004 gbl
+ffff78e0 l     O .bss	00000004 param
+ffff78e8 l     O .bss	00000002 skip_delay_mask
+ffff6cf8 l     O .rodata	00000004 CSWTCH.702
+ffff6cfc l     O .rodata	00000004 CSWTCH.703
 00000000 l    df *ABS*	00000000 alt_sdmmc.c
-ffff3b7c l     F .text	00000010 alt_sdmmc_is_busy
-ffff3b8c l     F .text	00000020 alt_sdmmc_is_idle
-ffff3bac l     F .text	00000014 alt_sdmmc_block_size_set
-ffff3bc0 l     F .text	000000b0 alt_sdmmc_cmd_set
-ffff3c70 l     F .text	00000034 alt_sdmmc_error_status_detect
-ffff3ca4 l     F .text	0000004c alt_sdmmc_bus_width_set
-ffff3e88 l     F .text	000000ac alt_sdmmc_transfer_helper
-ffff3fa8 l     F .text	00000074 alt_sdmmc_data_done_waiter
-ffff43c0 l     F .text	00000044 alt_sdmmc_desc_chain_clear
-ffff4404 l     F .text	000000ac alt_sdmmc_dma_trans_helper
-ffff44b0 l     F .text	000000bc alt_sdmmc_card_switch_function
-ffff466c l     F .text	000002f4 alt_sdmmc_card_enum_sd
-ffff4b34 l     F .text	0000010c alt_sdmmc_transfer.isra.7.part.8
-ffff79b0 l     O .bss	00000004 clock_freq
-ffff79c0 l     O .bss	00000004 dma_cur_descr
-ffff79e0 l     O .bss	00000800 dma_descriptors
-ffff81e0 l     O .bss	00000004 rca_number
-ffff7834 l     O .data	00000010 acmd_default_cfg
-ffff7844 l     O .data	00000004 cmd_clock_cfg
-ffff7848 l     O .data	00000040 cmd_default_cfg
-ffff6b4c l     O .rodata	00000010 freq_unit.7855
-ffff6d58 l     O .rodata	00000040 tran_speed_mul_x10.7854
+ffff3ad4 l     F .text	00000010 alt_sdmmc_is_busy
+ffff3ae4 l     F .text	00000020 alt_sdmmc_is_idle
+ffff3b04 l     F .text	00000014 alt_sdmmc_block_size_set
+ffff3b18 l     F .text	000000b0 alt_sdmmc_cmd_set
+ffff3bc8 l     F .text	00000034 alt_sdmmc_error_status_detect
+ffff3bfc l     F .text	0000004c alt_sdmmc_bus_width_set
+ffff3de0 l     F .text	000000ac alt_sdmmc_transfer_helper
+ffff3f00 l     F .text	00000074 alt_sdmmc_data_done_waiter
+ffff4318 l     F .text	00000044 alt_sdmmc_desc_chain_clear
+ffff435c l     F .text	000000ac alt_sdmmc_dma_trans_helper
+ffff4408 l     F .text	000000bc alt_sdmmc_card_switch_function
+ffff45c4 l     F .text	000002f4 alt_sdmmc_card_enum_sd
+ffff4a8c l     F .text	0000010c alt_sdmmc_transfer.isra.7.part.8
+ffff78ec l     O .bss	00000004 clock_freq
+ffff7900 l     O .bss	00000004 dma_cur_descr
+ffff7920 l     O .bss	00000800 dma_descriptors
+ffff8120 l     O .bss	00000004 rca_number
+ffff7784 l     O .data	00000010 acmd_default_cfg
+ffff7794 l     O .data	00000004 cmd_clock_cfg
+ffff7798 l     O .data	00000040 cmd_default_cfg
+ffff6aac l     O .rodata	00000010 freq_unit.7855
+ffff6cb8 l     O .rodata	00000040 tran_speed_mul_x10.7854
 00000000 l    df *ABS*	00000000 alt_clock_manager.c
-ffff4c6e l     F .text	0000000a alt_clk_mgr_wait
-ffff7888 l     O .data	00000040 alt_ext_clk_paramblok
-ffff78c8 l     O .data	00000060 alt_pll_clk_paramblok
+ffff4bc6 l     F .text	0000000a alt_clk_mgr_wait
+ffff77d8 l     O .data	00000040 alt_ext_clk_paramblok
+ffff7818 l     O .data	00000060 alt_pll_clk_paramblok
 00000000 l    df *ABS*	00000000 alt_interrupt.c
-ffff81e4 l     O .bss	00000004 alt_int_base_cpu
-ffff81e8 l     O .bss	00000800 alt_int_dispatch
+ffff8124 l     O .bss	00000004 alt_int_base_cpu
+ffff8128 l     O .bss	00000800 alt_int_dispatch
 00000000 l    df *ABS*	00000000 lib1funcs.o
-ffff5e18 l     F .text	00000010 Ldiv0
+ffff5d70 l     F .text	00000010 Ldiv0
 00000000 l    df *ABS*	00000000 uldivmod.o
-ffff5f98 l       .text	00000000 L_div_by_0
-ffff5f24 l       .text	00000000 L_pow2
-ffff5f0c l       .text	00000000 L_div_32_32
-ffff5e50 l       .text	00000000 L_div_64_64
-ffff5e60 l       .text	00000000 L_lsl_4
-ffff5e8c l       .text	00000000 L_lsl_1
-ffff5eb8 l       .text	00000000 L_subtract
-ffff5ed4 l       .text	00000000 L_update
-ffff5ef8 l       .text	00000000 L_exit
+ffff5ef0 l       .text	00000000 L_div_by_0
+ffff5e7c l       .text	00000000 L_pow2
+ffff5e64 l       .text	00000000 L_div_32_32
+ffff5da8 l       .text	00000000 L_div_64_64
+ffff5db8 l       .text	00000000 L_lsl_4
+ffff5de4 l       .text	00000000 L_lsl_1
+ffff5e10 l       .text	00000000 L_subtract
+ffff5e2c l       .text	00000000 L_update
+ffff5e50 l       .text	00000000 L_exit
 00000000 l    df *ABS*	00000000 div0.c
 00000000 l    df *ABS*	00000000 memset.o
 00000000 l    df *ABS*	00000000 div64.c
 ffff019a g     F .text	00000016 PutByte
-ffff7928 g       .data	00000000 __rel_dyn_start
-ffff4c78 g     F .text	00000024 alt_clk_plls_settle_wait
-ffff42c0  w    F .text	00000004 alt_cache_system_purge
-ffff6060 g     F .text	0000007c __div64_32
-ffff7928 g     O .bss	0000002c Card_Info
-ffff4208 g     F .text	00000060 alt_sdmmc_card_clk_div_set
-ffff0c10 g     F .text	0000027c FDy_cm_basic_init
-ffff5c2c g     F .text	00000008 get_current_cpu_num
-ffff628c g     O .rodata	00000830 FDy_iocsr_scan_chain3_table
-ffff1378 g     F .text	00000024 FDy_scan_mgr_configure_iocsr
-ffff4f10 g     F .text	00000054 alt_clk_pll_is_bypassed
-ffff0b18 g     F .text	00000010 hang
-ffff613c g     O .rodata	000000d8 FDy_iocsr_scan_chain1_table
-ffff14e8 g     F .text	00000008 socfpga_get_sdram_io_config
-ffff799c g     O .bss	00000004 iocfg
+ffff7878 g       .data	00000000 __rel_dyn_start
+ffff4bd0 g     F .text	00000024 alt_clk_plls_settle_wait
+ffff4218  w    F .text	00000004 alt_cache_system_purge
+ffff5fc0 g     F .text	0000007c __div64_32
+ffff7878 g     O .bss	0000002c Card_Info
+ffff4160 g     F .text	00000060 alt_sdmmc_card_clk_div_set
+ffff0b68 g     F .text	0000027c FDy_cm_basic_init
+ffff5b84 g     F .text	00000008 get_current_cpu_num
+ffff61ec g     O .rodata	00000830 FDy_iocsr_scan_chain3_table
+ffff12d0 g     F .text	00000024 FDy_scan_mgr_configure_iocsr
+ffff4e68 g     F .text	00000054 alt_clk_pll_is_bypassed
+ffff0a5c g     F .text	00000010 hang
+ffff609c g     O .rodata	000000d8 FDy_iocsr_scan_chain1_table
+ffff1440 g     F .text	00000008 socfpga_get_sdram_io_config
+ffff78d8 g     O .bss	00000004 iocfg
 ffff0030 g       .text	00000000 _not_used
-ffff4960 g     F .text	000001d4 alt_sdmmc_card_identify
+ffff48b8 g     F .text	000001d4 alt_sdmmc_card_identify
 ffff0044 g       .text	00000000 reset
-000010c0 g       *ABS*	00000000 __bss_size
+000010b0 g       *ABS*	00000000 __bss_size
 ffff0164 g     F .text	00000014 getc
-ffff0b3c g     F .text	000000a0 ChargementApplicativeViaFichierRAW
-ffff5e28 g     F .text	00000188 __aeabi_uldivmod
+ffff0a80 g     F .text	000000b4 ChargementApplicativeViaFichierRAW
+ffff5d80 g     F .text	00000188 __aeabi_uldivmod
 ffff022e g     F .text	00000012 puts
-ffff5084 g     F .text	00000134 alt_clk_clock_enable
-ffff456c g     F .text	00000100 alt_sdmmc_card_speed_set
-ffff7928 g       .data	00000000 __image_copy_end
-ffff5c80 g     F .text	0000009c __udivsi3
+ffff4fdc g     F .text	00000134 alt_clk_clock_enable
+ffff44c4 g     F .text	00000100 alt_sdmmc_card_speed_set
+ffff7878 g       .data	00000000 __image_copy_end
+ffff5bd8 g     F .text	0000009c __udivsi3
 ffff002c g       .text	00000000 _data_abort
-ffff11a0 g     F .text	00000094 FDy_sys_mgr_frzctrl_thaw_req
-ffff402c g     F .text	00000028 alt_sdmmc_card_rd_threshold_enable
-ffff3d04 g     F .text	00000010 alt_sdmmc_card_pwr_is_on
-ffff035c g     F .text	000000fe printi
-ffff0240 g     F .text	000000a8 HexDump
-ffff139c g     F .text	000000b8 FDy_sysmgr_pinmux_init
-ffff7974 g     O .bss	00000014 tempBuffer
-ffff4054 g     F .text	00000150 alt_sdmmc_command_send
-ffff0620 g     F .text	0000009e get_ram_size
-ffff14f0 g     F .text	00000008 socfpga_get_sdram_misc_config
-ffff3f34 g     F .text	0000003c alt_sdmmc_fifo_param_set
+ffff10f8 g     F .text	00000094 FDy_sys_mgr_frzctrl_thaw_req
+ffff3f84 g     F .text	00000028 alt_sdmmc_card_rd_threshold_enable
+ffff3c5c g     F .text	00000010 alt_sdmmc_card_pwr_is_on
+ffff02b4 g     F .text	000000fe printi
+ffff12f4 g     F .text	000000b8 FDy_sysmgr_pinmux_init
+ffff3fac g     F .text	00000150 alt_sdmmc_command_send
+ffff0578 g     F .text	0000009e get_ram_size
+ffff1448 g     F .text	00000008 socfpga_get_sdram_misc_config
+ffff3e8c g     F .text	0000003c alt_sdmmc_fifo_param_set
 ffff01e0 g     F .text	0000004e putHexa64
-ffff3f70 g     F .text	00000020 alt_sdmmc_dma_enable
-ffff4c9c g     F .text	00000034 alt_clk_pll_is_locked
-ffff89e8 g       .bss	00000000 __bss_end
-ffff7990 g     O .bss	00000004 ucDestination
-ffff4398 g     F .text	00000028 alt_sdmmc_init
-ffff6b5c g     O .rodata	000001fc inst_rom_init
+ffff3ec8 g     F .text	00000020 alt_sdmmc_dma_enable
+ffff4bf4 g     F .text	00000034 alt_clk_pll_is_locked
+ffff8928 g       .bss	00000000 __bss_end
+ffff78cc g     O .bss	00000004 ucDestination
+ffff42f0 g     F .text	00000028 alt_sdmmc_init
+ffff6abc g     O .rodata	000001fc inst_rom_init
 ffff01b0 g     F .text	00000030 putHexa32
-ffff3d48 g     F .text	00000010 alt_sdmmc_card_clk_is_enabled
-ffff41d0 g     F .text	00000038 alt_sdmmc_card_clk_enable
-ffff14e0 g     F .text	00000008 socfpga_get_sdram_rwmgr_config
-ffff79a8 g     O .bss	00000004 rwcfg
+ffff3ca0 g     F .text	00000010 alt_sdmmc_card_clk_is_enabled
+ffff4128 g     F .text	00000038 alt_sdmmc_card_clk_enable
+ffff1438 g     F .text	00000008 socfpga_get_sdram_rwmgr_config
+ffff78e4 g     O .bss	00000004 rwcfg
 ffff0028 g       .text	00000000 _prefetch_abort
-ffff7824 g     O .data	00000010 misc_config
-ffff7960 g     O .bss	00000014 card_misc_cfg
-ffff3cf0 g     F .text	00000014 alt_sdmmc_card_pwr_on
-ffff0b28 g     F .text	00000014 Read4Bytes
-ffff05d0 g     F .text	00000050 socfpga_bridges_reset
-ffff3e20 g     F .text	00000014 alt_sdmmc_int_disable
-ffff0f28 g     F .text	00000208 socfpga_load
-ffff14d0 g     F .text	00000010 socfpga_get_seq_inst_init
-ffff5d1c g     F .text	000000cc __aeabi_idiv
-ffff3db4 g     F .text	00000024 alt_sdmmc_fifo_reset
-ffff14f8 g     F .text	0000004c sdram_calculate_size
-ffff3f90 g     F .text	00000018 alt_sdmmc_is_dma_enabled
+ffff7774 g     O .data	00000010 misc_config
+ffff78b0 g     O .bss	00000014 card_misc_cfg
+ffff3c48 g     F .text	00000014 alt_sdmmc_card_pwr_on
+ffff0a6c g     F .text	00000014 Read4Bytes
+ffff0528 g     F .text	00000050 socfpga_bridges_reset
+ffff3d78 g     F .text	00000014 alt_sdmmc_int_disable
+ffff0e80 g     F .text	00000208 socfpga_load
+ffff1428 g     F .text	00000010 socfpga_get_seq_inst_init
+ffff5c74 g     F .text	000000cc __aeabi_idiv
+ffff3d0c g     F .text	00000024 alt_sdmmc_fifo_reset
+ffff1450 g     F .text	0000004c sdram_calculate_size
+ffff3ee8 g     F .text	00000018 alt_sdmmc_is_dma_enabled
 ffff0000 g       .text	00000000 _start
-ffff401c g     F .text	00000010 alt_sdmmc_dma_int_enable
-ffff3dd8 g     F .text	00000024 alt_sdmmc_dma_reset
-ffff02e8 g     F .text	00000074 prints
-ffff4268 g     F .text	00000058 alt_sdmmc_card_bus_width_set
-ffff51b8 g     F .text	00000118 alt_clk_is_enabled
-ffff1544 g     F .text	00000310 sdram_mmr_init_full
+ffff3f74 g     F .text	00000010 alt_sdmmc_dma_int_enable
+ffff3d30 g     F .text	00000024 alt_sdmmc_dma_reset
+ffff0240 g     F .text	00000074 prints
+ffff41c0 g     F .text	00000058 alt_sdmmc_card_bus_width_set
+ffff5110 g     F .text	00000118 alt_clk_is_enabled
+ffff149c g     F .text	00000310 sdram_mmr_init_full
 ffff0038 g       .text	00000000 _fiq
 ffff0020 g       .text	00000000 _undefined_instruction
-ffff6fba g     O .rodata	000000cf FDy_sys_mgr_init_table
-ffff0f08 g     F .text	00000020 fpgamgr_test_fpga_ready
-ffff41a4 g     F .text	0000002c alt_sdmmc_card_clk_disable
-ffff55a4 g     F .text	00000686 alt_clk_freq_get
-ffff3e78 g     F .text	00000010 alt_sdmmc_fifo_count
-ffff06c0 g     F .text	00000458 board_init
-ffff2b48 g     F .text	00001034 sdram_calibration_full
-ffff5c34 g     F .text	0000004c alt_int_handler_irq
-ffff3dfc g     F .text	00000024 alt_sdmmc_read_long_response
+ffff6f1c g     O .rodata	000000cf FDy_sys_mgr_init_table
+ffff0e60 g     F .text	00000020 fpgamgr_test_fpga_ready
+ffff40fc g     F .text	0000002c alt_sdmmc_card_clk_disable
+ffff54fc g     F .text	00000686 alt_clk_freq_get
+ffff3dd0 g     F .text	00000010 alt_sdmmc_fifo_count
+ffff0618 g     F .text	00000444 board_init
+ffff2aa0 g     F .text	00001034 sdram_calibration_full
+ffff5b8c g     F .text	0000004c alt_int_handler_irq
+ffff3d54 g     F .text	00000024 alt_sdmmc_read_long_response
 ffff008c g       .text	00000000 cpu_init_cp15
-ffff7928 g       .bss	00000000 __bss_start
-ffff4f64 g     F .text	00000120 alt_clk_clock_disable
-ffff5fc0 g     F .text	0000009e memset
-ffff5fb0 g     F .text	00000004 __div0
-ffff045c g     F .text	000000cc mainLoop
-ffff5c80 g     F .text	0000009c __aeabi_uidiv
+ffff7878 g       .bss	00000000 __bss_start
+ffff4ebc g     F .text	00000120 alt_clk_clock_disable
+ffff5f20 g     F .text	0000009e memset
+ffff5f08 g     F .text	00000004 __div0
+ffff03b4 g     F .text	000000cc mainLoop
+ffff5bd8 g     F .text	0000009c __aeabi_uidiv
 ffff0178 g     F .text	00000010 putc
-ffff5d1c g     F .text	000000cc __divsi3
-ffff79a0 g     O .bss	00000004 misccfg
-ffff3d14 g     F .text	00000034 alt_sdmmc_card_pwr_off
-ffff7958 g     O .bss	00000008 Sdmmc_Device_Size
-ffff0528 g     F .text	000000a8 FDy_preloader_console_init
-ffff1130 g     F .text	00000070 FDy_sys_mgr_frzctrl_freeze_req
-ffff798c g     O .bss	00000004 timerValueLow
-ffff4cd0 g     F .text	0000013c alt_clk_pll_bypass_disable
+ffff5c74 g     F .text	000000cc __divsi3
+ffff78dc g     O .bss	00000004 misccfg
+ffff3c6c g     F .text	00000034 alt_sdmmc_card_pwr_off
+ffff78a8 g     O .bss	00000008 Sdmmc_Device_Size
+ffff0480 g     F .text	000000a8 FDy_preloader_console_init
+ffff1088 g     F .text	00000070 FDy_sys_mgr_frzctrl_freeze_req
+ffff78c8 g     O .bss	00000004 timerValueLow
+ffff4c28 g     F .text	0000013c alt_clk_pll_bypass_disable
 ffff0188 g     F .text	00000012 PutNible
-ffff42c4 g     F .text	000000d4 alt_sdmmc_reset
-ffff3d58 g     F .text	00000010 alt_sdmmc_card_clk_low_power_is_enabled
-ffff1234 g     F .text	00000050 FDy_iocsr_get_config_table
+ffff421c g     F .text	000000d4 alt_sdmmc_reset
+ffff3cb0 g     F .text	00000010 alt_sdmmc_card_clk_low_power_is_enabled
+ffff118c g     F .text	00000050 FDy_iocsr_get_config_table
 ffff0138 g     F .text	0000002c get_ticks
-ffff7928 g       .data	00000000 _image_binary_end
-ffff4c40 g     F .text	0000002e alt_sdmmc_read
-ffff3e34 g     F .text	00000024 alt_sdmmc_int_enable
+ffff7878 g       .data	00000000 _image_binary_end
+ffff4b98 g     F .text	0000002e alt_sdmmc_read
+ffff3d8c g     F .text	00000024 alt_sdmmc_int_enable
 ffff0024 g       .text	00000000 _software_interrupt
-ffff6214 g     O .rodata	00000078 FDy_iocsr_scan_chain2_table
-ffff5de8 g     F .text	00000018 __aeabi_uidivmod
-ffff14c0 g     F .text	00000010 socfpga_get_seq_ac_init
-ffff3e58 g     F .text	00000010 alt_sdmmc_fifo_is_empty
-ffff4e0c g     F .text	00000104 alt_clk_pll_bypass_enable
-ffff3e68 g     F .text	00000010 alt_sdmmc_fifo_is_full
-ffff7954 g     O .bss	00000004 Sdmmc_Block_Size
-ffff7928 g       .data	00000000 __rel_dyn_end
-ffff52d0 g     F .text	00000144 alt_clk_pll_vco_freq_get
-ffff0ef4 g     F .text	00000014 fpgamgr_get_mode
+ffff6174 g     O .rodata	00000078 FDy_iocsr_scan_chain2_table
+ffff5d40 g     F .text	00000018 __aeabi_uidivmod
+ffff1418 g     F .text	00000010 socfpga_get_seq_ac_init
+ffff3db0 g     F .text	00000010 alt_sdmmc_fifo_is_empty
+ffff4d64 g     F .text	00000104 alt_clk_pll_bypass_enable
+ffff3dc0 g     F .text	00000010 alt_sdmmc_fifo_is_full
+ffff78a4 g     O .bss	00000004 Sdmmc_Block_Size
+ffff7878 g       .data	00000000 __rel_dyn_end
+ffff5228 g     F .text	00000144 alt_clk_pll_vco_freq_get
+ffff0e4c g     F .text	00000014 fpgamgr_get_mode
 ffff0000 g       .text	00000000 __image_copy_start
-ffff7814 g     O .data	00000010 io_config
-ffff5e00 g     F .text	00000018 __aeabi_idivmod
-ffff6abc g     O .rodata	00000090 ac_rom_init
+ffff7764 g     O .data	00000010 io_config
+ffff5d58 g     F .text	00000018 __aeabi_idivmod
+ffff6a1c g     O .rodata	00000090 ac_rom_init
 ffff00e0 g       .text	00000000 _main
-ffff3d68 g     F .text	0000004c alt_sdmmc_card_misc_get
-ffff5414 g     F .text	00000190 alt_clk_divider_get
-ffff60dc g     O .rodata	00000060 FDy_iocsr_scan_chain0_table
-ffff7988 g     O .bss	00000004 timerValueHigh
+ffff3cc0 g     F .text	0000004c alt_sdmmc_card_misc_get
+ffff536c g     F .text	00000190 alt_clk_divider_get
+ffff603c g     O .rodata	00000060 FDy_iocsr_scan_chain0_table
+ffff78c4 g     O .bss	00000004 timerValueHigh
 
 

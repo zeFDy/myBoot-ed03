@@ -29,15 +29,12 @@ void    ChargementApplicativeViaFichierRAW()
 	Read4Bytes(caMagic);
 	uiMagic = *((uint32_t*)caMagic);
 	puts("Magic  is ");
-	puts(caMagic);
-	puts("\r\n");
+	puts(caMagic);			// a revoir... car cela ne termine pas forcément par un \0 !
+	puts(" (");
+	putHexa32(uiMagic);
+	puts(")\r\n");
 	
-//	if(strcmp(caMagic, "RAW1")!=0)
-//	{
-//		puts("Error on RAW file header\r\n");
-//		for(;;);
-//	}
-	if(uiMagic!="RAW1")
+	if(uiMagic!=0x31574152)		// "RAW1"
 	{
 		puts("Error on RAW file header\r\n");
 		for(;;);

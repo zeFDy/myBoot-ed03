@@ -1,0 +1,104 @@
+
+
+                                       \o.o/
+---------------------------------.ooO---(_)---Ooo.----------
+
+    BareMetal Boot inspired by U-BOOT
+    Custom Version myBoot-Ed03 by FDy (17/04/2023 18:33:20)
+
+--------------------------------------------Oooo.-----------
+                                     .oooO  (   )
+                                     (   )   ) /
+                                      \ (   (_/
+                                       \_)
+
+
+FPGA not ready.
+SDRAM init.
+SDRAM: Calibrating PHY.
+SDRAM: 0x00000400 MiB - 0x40000000 Bytes
+Sanity check ensure correct SDRAM size specified.
+INFO: Setting up SDMMC.
+INFO: SDHC Card detected.
+INFO: Card width      = 0x00000004
+INFO: Card block size = 0x00000200
+INFO: Card size       = 0x00000003B5980000
+INFO: Reading menu.rbf
+INFO: Reading from address 0x00300000, size = 0x0024A000 bytes
+menu.rbf finished to load in 5034806 ticks -> 100 ms
+INFO: Loading FPGA
+INFO: End of Loading FPGA
+Pret a recevoir fichier Applicative format RAW (fichier SdRamExec.raw) sur RS232
+Magic  is RAW1 (0x31574152)
+Offset is 0x00000000
+Length is 0x00006860
+uiCpuNumber=00
+Jump to applicative
+Hello my friend
+Welcome to the other side !
+Version by FDy (17/04/2023 18:21:48)
+
+              ,   .-'"'=;_  ,                
+              |\.'-~`-.`-`;/|                 
+              \.` '.'~-.` './                
+              (\`,__=-'__,'/)                
+           _.-'-.( 0\_/0 ).-'-._             
+         /'.-'   ' .---. '   '-.`\           
+       /'  .' (=    (_)    =) '.  `\         
+      /'  .',  `-.__.-.__.-'  ,'.  `\        
+     (     .'.   V       V  ; '.     )       
+     (    |::  `-,__.-.__,-'  ::|    )       
+     |   /|`:.               .:'|\   |       
+     |  / | `:.              :' |`\  |       
+     | |  (  :.-------------.:  )  | |       
+     | |   ( `:.    FDy     :' )   | |       
+     | |    \ :.-----------.: /    | |       
+     | |     \`:.         .:'/     | |       
+     ) (      `\`:.     .:'/'      ) (       
+     (  `)_     ) `:._.:' (     _(`  )       
+     \  ' _)  .'           `.  (_ `  /       
+      \  '_) /   .'"```"'.   \ (_`  /        
+       `'"`  \  (         )  /  `"'`         
+   ___        `.`.       .'.'        ___     
+ .`   ``"""'''--`_)     (_'--'''"""``   `.   
+(_(_(___...--'"'`         `'"'--...___)_)_)  
+
+SdRamMain affinity = 0x00
+RUNNING ON CORE0
+SP=0x3FFFEFE0
+
+INFO: System Initialization.
+INFO: Setting up Global Timer.
+
+INFO: Interrupt Setup.
+
+INFO: SP Timer 1 One-shot Demo.
+INFO: Setting SP Timer 1 mode.
+INFO: Setting SP Timer 1 count value.
+INFO: Enabling SP Timer1 Interrupt.
+INFO: Starting SP Timer1.
+INFO: Checking if SP Timer 1 is running.
+INFO: SP Timer 1 is running.
+INFO: Waiting for SP Timer1 Interrupt.
+LHLHLH
+Notify main thread
+
+INFO: SP Timer1 Interrupt Fired.
+End of timer demo...
+Cpu1Code affinity = 0x01
+RUNNING ON CORE1
+SP=0x3FFFFFF0
+LHLH0xFFFFFFFFE1275B7E - Alive and kicking...
+LH
+Notify main thread
+LH0xFFFFFFFFDE2B0E1A - Alive and kicking...
+LHLH
+Notify main thread
+0xFFFFFFFFDB2EC0CA - Alive and kicking...
+LHLH0xFFFFFFFFD8326EF6 - Alive and kicking...
+LH
+Notify main thread
+LH0xFFFFFFFFD5362189 - Alive and kicking...
+LHLH
+Notify main thread
+0xFFFFFFFFD2396071 - Alive and kicking...

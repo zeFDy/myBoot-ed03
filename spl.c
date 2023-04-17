@@ -1309,8 +1309,8 @@ void board_init(void)
 	puts("Pret a recevoir fichier Applicative format RAW (fichier SdRamExec.raw) sur RS232\n\r");
 	ChargementApplicativeViaFichierRAW();
 
-	puts("Dump Applicative :\n\r");
-	HexDump(APPLICATIVE_DEST_ADDRESS, APPLICATIVE_SIZE_ROUND);	// fichier appli
+	//puts("Dump Applicative :\n\r");
+	//HexDump(APPLICATIVE_DEST_ADDRESS, APPLICATIVE_SIZE_ROUND);	// fichier appli
 
 	mainLoop();	// Essai FDy	- it works here
 }
