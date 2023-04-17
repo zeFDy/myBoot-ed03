@@ -161,7 +161,6 @@ SdRamExec.o:	SdRamStart.o \
 				hwlibs/src/alt_interrupt.o		\
 				hwlibs/src/alt_timers.o 		\
 				hwlibs/src/alt_watchdog.o 		\
-				div64.o 						\
 				SdRamMain.o
 				$(LD) -T SdRamExec.lds SdRamStart.o \
 				SdRamMain.o \
@@ -172,8 +171,6 @@ SdRamExec.o:	SdRamStart.o \
 				hwlibs/src/alt_timers.o 		\
 				hwlibs/src/alt_watchdog.o 		\
 				lib.a 							\
-				memset.o 						\
-				div64.o 						\
 				-o SdRamExec.o
 				$(CP) -O binary SdRamExec.o SdRamExec.bin
 				$(CP) --srec-forceS3 -O srec SdRamExec.o SdRamExec.txt	
