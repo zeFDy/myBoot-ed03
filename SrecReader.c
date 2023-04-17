@@ -197,7 +197,7 @@ int SrecReader(char* caInput, unsigned char* ucDest)
 //char 			caLine[1024];
 char*   caDestination;
 
-void    ChargementApplicative()
+void    ChargementApplicativeViaFichierSREC()
 {
 	int 	iLineCounter =0;
 	char 	cPrevious =0;

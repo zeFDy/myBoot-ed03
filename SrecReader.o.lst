@@ -137,12 +137,12 @@ Disassembly of section .text.SrecReader:
   66:	9300      	str	r3, [sp, #0]
   68:	e7d1      	b.n	e <SrecReader+0xe>
 
-Disassembly of section .text.ChargementApplicative:
+Disassembly of section .text.ChargementApplicativeViaFichierSREC:
 
-00000000 <ChargementApplicative>:
+00000000 <ChargementApplicativeViaFichierSREC>:
    0:	b570      	push	{r4, r5, r6, lr}
    2:	2100      	movs	r1, #0
-   4:	4c11      	ldr	r4, [pc, #68]	; (4c <ChargementApplicative+0x4c>)
+   4:	4c11      	ldr	r4, [pc, #68]	; (4c <ChargementApplicativeViaFichierSREC+0x4c>)
    6:	f44f 3580 	mov.w	r5, #65536	; 0x10000
    a:	462a      	mov	r2, r5
    c:	4628      	mov	r0, r5
@@ -159,17 +159,17 @@ Disassembly of section .text.ChargementApplicative:
   28:	b2c0      	uxtb	r0, r0
   2a:	2e53      	cmp	r6, #83	; 0x53
   2c:	5558      	strb	r0, [r3, r5]
-  2e:	d101      	bne.n	34 <ChargementApplicative+0x34>
+  2e:	d101      	bne.n	34 <ChargementApplicativeViaFichierSREC+0x34>
   30:	2837      	cmp	r0, #55	; 0x37
-  32:	d002      	beq.n	3a <ChargementApplicative+0x3a>
+  32:	d002      	beq.n	3a <ChargementApplicativeViaFichierSREC+0x3a>
   34:	3501      	adds	r5, #1
   36:	4606      	mov	r6, r0
-  38:	e7f3      	b.n	22 <ChargementApplicative+0x22>
+  38:	e7f3      	b.n	22 <ChargementApplicativeViaFichierSREC+0x22>
   3a:	6823      	ldr	r3, [r4, #0]
   3c:	2100      	movs	r1, #0
   3e:	442b      	add	r3, r5
   40:	7059      	strb	r1, [r3, #1]
   42:	6820      	ldr	r0, [r4, #0]
   44:	e8bd 4070 	ldmia.w	sp!, {r4, r5, r6, lr}
-  48:	f7ff bffe 	b.w	0 <ChargementApplicative>
+  48:	f7ff bffe 	b.w	0 <ChargementApplicativeViaFichierSREC>
   4c:	00000000 	.word	0x00000000

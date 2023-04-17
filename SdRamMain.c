@@ -229,7 +229,7 @@ void SdRamMain(void)
 	puts("Hello my friend\n\r");
 	puts("Welcome to the other side !\n\r");
 	//puts("Version by FDy ("__DATE__" - "__TIME__")\n\r");	
-	puts("Version by FDy ("OUR_DATE_TIME")\n\r");	
+	puts("Version by FDy ("OUR_DATE_TIME_FULL")\n\r");	
 
 	puts("\n\r");
 	puts("              ,   .-'\"'=;_  ,                \n\r");

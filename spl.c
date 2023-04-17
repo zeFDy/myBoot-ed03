@@ -1,5 +1,6 @@
 #include "common.h"
 #include "hwlibs/include/alt_sdmmc.h"
+#include "ourDateTime.h"
 
 // Pour copier ce soft sur sdhc via usb :
 // troisieme partition et offset 0
@@ -86,7 +87,7 @@ uint64_t int_tables[19][9] =
 };
 */
 
-#define 	__THIS_VERSION__		"v0.0.3"
+//#define 	__THIS_VERSION__		"v0.0.3c"
 // menu.rbf en partition 1 :
 //#define 	MENU_RBF_ADDRESS		6144*512
 #define	 	MENU_RBF_ADDRESS		3145728
@@ -762,7 +763,8 @@ void FDy_preloader_console_init(void)
 	puts("\n\r"); 
 	puts("    BareMetal Boot inspired by U-BOOT\n\r");
 //	puts("    Custom Version myBoot-Ed03 by FDy - " __THIS_VERSION__ " ("__DATE__" - "__TIME__")\n\r");	
-	puts("    Custom Version myBoot-Ed03 by FDy ("__DATE__" - "__TIME__")\n\r");	
+//	puts("    Custom Version myBoot-Ed03 by FDy ("__DATE__" - "__TIME__")\n\r");	
+	puts("    Custom Version myBoot-Ed03 by FDy ("OUR_DATE_TIME_FULL")\n\r");	
 	puts("\n\r"); 
 	puts("--------------------------------------------Oooo.-----------\n\r");
 	puts("                                     .oooO  (   )\n\r");
@@ -1300,9 +1302,12 @@ void board_init(void)
 	*/
 
 	// read applicative a partir d'un SREC sur liaison serie
-	puts("Pret a recevoir fichier Applicative (SdRamExec.txt) via fichier SREC sur liaison console\n\r");
-	ChargementApplicative();
+	//puts("Pret a recevoir fichier Applicative (SdRamExec.txt) via fichier SREC sur liaison console\n\r");
+	//ChargementApplicativeViaFichierSREC();
 
+	// read applicative a partir d'un RAW (format custom FDy) sur liaison serie
+	puts("Pret a recevoir fichier Applicative format RAW (fichier SdRamExec.raw) sur RS232\n\r");
+	ChargementApplicativeViaFichierRAW();
 
 	puts("Dump Applicative :\n\r");
 	HexDump(APPLICATIVE_DEST_ADDRESS, APPLICATIVE_SIZE_ROUND);	// fichier appli

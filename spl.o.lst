@@ -481,11 +481,11 @@ Disassembly of section .text.FDy_preloader_console_init:
   88:	0000002f 	.word	0x0000002f
   8c:	0000006e 	.word	0x0000006e
   90:	00000096 	.word	0x00000096
-  94:	000000d7 	.word	0x000000d7
-  98:	00000116 	.word	0x00000116
-  9c:	0000014a 	.word	0x0000014a
-  a0:	0000017d 	.word	0x0000017d
-  a4:	000001af 	.word	0x000001af
+  94:	000000d4 	.word	0x000000d4
+  98:	00000113 	.word	0x00000113
+  9c:	00000147 	.word	0x00000147
+  a0:	0000017a 	.word	0x0000017a
+  a4:	000001ac 	.word	0x000001ac
 
 Disassembly of section .text.socfpga_bridges_reset:
 
@@ -869,7 +869,7 @@ Disassembly of section .text.board_init:
  2d2:	f7ff fffe 	bl	0 <board_init>
  2d6:	482d      	ldr	r0, [pc, #180]	; (38c <board_init+0x38c>)
  2d8:	f7ff fffe 	bl	0 <board_init>
- 2dc:	f7ff fffe 	bl	0 <ChargementApplicative>
+ 2dc:	f7ff fffe 	bl	0 <ChargementApplicativeViaFichierRAW>
  2e0:	482b      	ldr	r0, [pc, #172]	; (390 <board_init+0x390>)
  2e2:	f7ff fffe 	bl	0 <board_init>
  2e6:	4630      	mov	r0, r6
@@ -915,7 +915,7 @@ Disassembly of section .text.board_init:
  384:	00249e78 	.word	0x00249e78
  388:	00000245 	.word	0x00000245
  38c:	00000261 	.word	0x00000261
- 390:	000002bc 	.word	0x000002bc
+ 390:	000002b4 	.word	0x000002b4
  394:	00000105 	.word	0x00000105
  398:	0000011f 	.word	0x0000011f
  39c:	4822      	ldr	r0, [pc, #136]	; (428 <board_init+0x428>)

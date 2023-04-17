@@ -87,7 +87,11 @@ div64.o:					div64.c
 SrecReader.o:				SrecReader.c
 							$(CC) $(OPTIONS) $^ -o $@
 							$(OD) -d $@ >$@.lst
-
+							
+RawFileReader.o:			RawFileReader.c
+							$(CC) $(OPTIONS) $^ -o $@
+							$(OD) -d $@ >$@.lst
+							
 spl.o:						spl.c
 							$(CC) $(OPTIONS) $^ -o $@
 							$(OD) -d $@ >$@.lst
@@ -96,6 +100,7 @@ spl.o:						spl.c
 myBoot.o:		start.o 						\
 				spl.o 							\
 				SrecReader.o 					\
+				RawFileReader.o 				\
 				ClockManager.o					\
 				FpgaManager.o 					\
 				FreezeManager.o 				\
@@ -115,6 +120,7 @@ myBoot.o:		start.o 						\
 				$(LD) -T myBoot.lds --gc-sections -Bstatic --gc-sections -Ttext 0xFFFF0000 start.o --start-group \
 				spl.o 							\
 				SrecReader.o 					\
+				RawFileReader.o 				\
 				ClockManager.o 					\
 				FpgaManager.o 					\
 				FreezeManager.o 				\
@@ -171,8 +177,9 @@ SdRamExec.o:	SdRamStart.o \
 				-o SdRamExec.o
 				$(CP) -O binary SdRamExec.o SdRamExec.bin
 				$(CP) --srec-forceS3 -O srec SdRamExec.o SdRamExec.txt	
+				$(CP) -O ihex SdRamExec.o SdRamExec.hex	
 				$(OD) -d SdRamExec.o >SdRamExec.lst
 				$(OD) -x SdRamExec.o >SdRamExec.map
-				
+				./bin2raw SdRamExec.bin SdRamExec.raw
 
 
