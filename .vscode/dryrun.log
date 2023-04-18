@@ -1,6 +1,0 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory '/home/francky/Documents/uboot/myBoot-Ed03'
-arm-linux-gnueabihf-gcc -x assembler-with-cpp start.S -o start.o -c
-arm-linux-gnueabihf-objdump -d start.o >start.lst
-make: Leaving directory '/home/francky/Documents/uboot/myBoot-Ed03'
- 
